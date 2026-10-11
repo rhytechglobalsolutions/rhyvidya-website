@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Learn Hindi live with Saraswathi through Google Meet, simple booking, stage-based videos, and a free first month at launch." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Noto+Sans+Devanagari:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>RhyVidya — Learn Hindi Live</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f6fb;
+      --paper: #ffffff;
+      --paper-2: #ececf5;
+      --ink: #171727;
+      --muted: #5f5e70;
+      --line: #d9d8e5;
+      --purple: #6f2bbd;
+      --purple-dark: #241338;
+      --purple-soft: #eee4fa;
+      --saffron: #b88120;
+      --saffron-soft: #fbf1dc;
+      --sage: #226b59;
+      --nav: rgba(245,246,251,.94);
+      --shadow: 0 18px 55px rgba(25,20,48,.16);
+      --focus: #1769e0;
+      --radius-lg: 30px;
+      --radius-md: 20px;
+      --radius-sm: 12px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1120;
+        --paper: #171a2b;
+        --paper-2: #20243a;
+        --ink: #f7f4fb;
+        --muted: #c3bfd0;
+        --line: #343850;
+        --purple: #bd7af1;
+        --purple-dark: #f0dcff;
+        --purple-soft: #34224d;
+        --saffron: #f0bf62;
+        --saffron-soft: #362b19;
+        --sage: #7fd1b8;
+        --nav: rgba(15,17,32,.94);
+        --shadow: 0 18px 55px rgba(0,0,0,.28);
+        --focus: #8bbcff;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: var(--nav);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+    nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .phase-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .phase-mark::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--saffron);
+      box-shadow: 0 0 0 5px var(--saffron-soft);
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 600; color: var(--muted); }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-links .nav-cta { color: #fff; background: #5f22a5; padding: 10px 16px; border-radius: 999px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); }
+    .menu-button { display: none; border: 0; background: transparent; color: var(--ink); width: 42px; height: 42px; padding: 9px; }
+    .menu-button svg { width: 100%; height: 100%; stroke: currentColor; }
+
+    .hero { padding: 74px 0 62px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 70px; }
+    .eyebrow { margin: 0 0 20px; color: var(--purple); font-size: 14px; font-weight: 700; }
+    .eyebrow span { color: var(--muted); font-weight: 500; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      font-family: Lora, serif;
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -.045em;
+      margin-bottom: 24px;
+      max-width: 740px;
+    }
+    h1 em { color: var(--purple); font-style: normal; }
+    .hero-copy > p { max-width: 620px; color: var(--muted); font-size: 18px; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .button.primary { background: #5f22a5; color: #fff; box-shadow: 0 8px 24px rgba(95,34,165,.22); }
+    .button.primary:hover { background: #48157d; }
+    .button.secondary { border-color: var(--line); background: var(--paper); }
+    .button.secondary:hover { border-color: var(--purple); color: var(--purple); }
+    .hero-art { position: relative; min-height: 500px; display: grid; place-items: center; }
+    .logo-stage {
+      width: min(100%, 520px);
+      background: #111421;
+      border: 1px solid rgba(190,131,244,.34);
+      border-radius: 40px 40px 40px 12px;
+      box-shadow: 0 24px 70px rgba(34,18,59,.28);
+      padding: 18px;
+      transform: rotate(1.5deg);
+      overflow: hidden;
+    }
+    .logo-stage video { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px; }
+    .logo-still { position: absolute; width: 108px; left: -18px; top: 10px; padding: 7px; background: #111421; border: 1px solid rgba(240,191,98,.55); border-radius: 14px; box-shadow: var(--shadow); transform: rotate(-5deg); }
+    .logo-still img { width: 100%; border-radius: 9px; }
+    .floating-note {
+      position: absolute;
+      right: -8px;
+      bottom: 22px;
+      width: 230px;
+      background: var(--purple-dark);
+      color: var(--bg);
+      padding: 18px 19px;
+      border-radius: 18px 18px 4px 18px;
+      box-shadow: var(--shadow);
+      transform: rotate(-3deg);
+    }
+    @media (prefers-color-scheme: dark) {
+      .floating-note { background: #ead6f6; color: #24152d; }
+    }
+    .floating-note b { display: block; font-family: "Noto Sans Devanagari", sans-serif; font-size: 23px; margin-bottom: 4px; }
+    .floating-note span { font-size: 13px; opacity: .78; }
+
+    .trust-strip { border-block: 1px solid var(--line); background: var(--paper); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .trust-item { padding: 22px 24px; border-right: 1px solid var(--line); }
+    .trust-item:last-child { border-right: 0; }
+    .trust-item b { display: block; font-size: 15px; margin-bottom: 2px; }
+    .trust-item span { color: var(--muted); font-size: 13px; }
+
+    section { padding: 96px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 34px; margin-bottom: 46px; }
+    .section-head h2 { font-family: Lora, serif; font-size: clamp(34px, 5vw, 54px); line-height: 1.08; letter-spacing: -.035em; margin: 0; max-width: 700px; }
+    .section-head p { color: var(--muted); max-width: 430px; margin: 0; }
+
+    .route { background: var(--paper); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+    .step { padding: 38px 34px; min-height: 280px; border-right: 1px solid var(--line); position: relative; }
+    .step:last-child { border-right: 0; }
+    .step-num { font-family: Lora, serif; color: var(--purple); font-size: 44px; line-height: 1; display: block; margin-bottom: 54px; }
+    .step h3 { font-size: 19px; margin-bottom: 10px; }
+    .step p { color: var(--muted); font-size: 14px; margin-bottom: 0; }
+
+    .stage-finder { background: var(--purple-dark); color: #fff; }
+    @media (prefers-color-scheme: dark) { .stage-finder { background: #2a1438; } }
+    .finder-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .finder-copy h2 { font-family: Lora, serif; font-size: clamp(36px, 5vw, 56px); line-height: 1.08; letter-spacing: -.035em; margin-bottom: 20px; }
+    .finder-copy p { color: rgba(255,255,255,.72); }
+    .finder-panel { background: #fff; color: #201627; border-radius: var(--radius-lg); padding: 34px; min-height: 390px; }
+    .question-count { color: #6d24a7; font-size: 13px; font-weight: 700; margin-bottom: 14px; }
+    .finder-panel h3 { font-family: Lora, serif; font-size: 27px; line-height: 1.25; margin-bottom: 24px; }
+    .answer-list { display: grid; gap: 12px; }
+    .answer {
+      width: 100%;
+      text-align: left;
+      border: 1px solid #ddd6e2;
+      background: #faf8fb;
+      color: #201627;
+      padding: 15px 16px;
+      border-radius: 12px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .answer:hover { border-color: #6d24a7; background: #f5ecfa; }
+    .result-badge { display: inline-block; color: #5d1b91; background: #f0e4f7; padding: 7px 11px; border-radius: 999px; font-weight: 700; font-size: 13px; margin-bottom: 18px; }
+    .result-copy { color: #615868; }
+    .result-skills { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 24px; }
+    .result-skills span { background: #f4f0f5; padding: 7px 10px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+    .restart { border: 0; background: none; color: #5d1b91; padding: 0; font: inherit; font-weight: 700; cursor: pointer; }
+
+    .curriculum { background: var(--bg); }
+    .level-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .level-card { background: var(--paper); border: 1px solid var(--line); padding: 28px; border-radius: var(--radius-md); }
+    .level-card:nth-child(2) { margin-top: 34px; }
+    .level-card:nth-child(3) { margin-top: 68px; }
+    .level-tag { font-size: 13px; font-weight: 700; color: var(--purple); }
+    .devanagari { font-family: "Noto Sans Devanagari", sans-serif; font-size: 42px; color: var(--saffron); margin: 18px 0 12px; }
+    .level-card h3 { font-family: Lora, serif; font-size: 25px; margin-bottom: 12px; }
+    .level-card p { color: var(--muted); font-size: 14px; }
+    .level-card ul { list-style: none; padding: 0; margin: 24px 0 0; }
+    .level-card li { display: flex; gap: 9px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14px; }
+    .level-card li::before { content: "•"; color: var(--saffron); font-weight: 700; }
+
+    .teacher { background: var(--paper); }
+    .teacher-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    .board {
+      background: #173f36;
+      color: #f6f0d8;
+      min-height: 440px;
+      border: 12px solid #a76a36;
+      border-radius: 6px;
+      box-shadow: var(--shadow);
+      padding: 50px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .board::after { content: ""; position: absolute; left: 40px; right: 40px; bottom: 28px; height: 4px; background: rgba(255,255,255,.22); border-radius: 9px; }
+    .board .hindi { font-family: "Noto Sans Devanagari", sans-serif; font-size: clamp(48px, 8vw, 76px); margin-bottom: 12px; }
+    .board .chalk { font-family: Lora, serif; font-style: italic; font-size: 22px; opacity: .9; }
+    .board .lesson { position: absolute; right: 30px; bottom: 50px; color: #ffd79b; font-size: 14px; transform: rotate(-4deg); }
+    .teacher-copy .teacher-label { color: var(--purple); font-weight: 700; font-size: 14px; }
+    .teacher-copy h2 { font-family: Lora, serif; font-size: clamp(38px, 5vw, 58px); line-height: 1.08; letter-spacing: -.035em; margin: 14px 0 20px; }
+    .teacher-copy p { color: var(--muted); font-size: 17px; }
+    .teacher-points { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 28px; }
+    .teacher-point { border-top: 2px solid var(--line); padding-top: 14px; font-size: 14px; color: var(--muted); }
+    .teacher-point b { display: block; color: var(--ink); margin-bottom: 4px; }
+
+    .library { padding-bottom: 110px; }
+    .library-shell { background: var(--saffron-soft); border-radius: 36px; padding: 52px; }
+    .library-top { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 34px; }
+    .library-top h2 { font-family: Lora, serif; font-size: clamp(36px, 5vw, 54px); line-height: 1.08; letter-spacing: -.035em; margin-bottom: 10px; }
+    .library-top p { color: var(--muted); margin: 0; }
+    .free-label { background: var(--paper); color: var(--sage); border-radius: 999px; padding: 8px 13px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .lesson-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .lesson-card { background: var(--paper); border-radius: 16px; overflow: hidden; }
+    .lesson-visual { min-height: 160px; display: grid; place-items: center; background: var(--purple-soft); color: var(--purple); }
+    .lesson-visual span { font-family: "Noto Sans Devanagari", sans-serif; font-size: 52px; }
+    .lesson-card:nth-child(2) .lesson-visual { background: #e3f0eb; color: #245f50; }
+    .lesson-card:nth-child(3) .lesson-visual { background: #f4e4d0; color: #8a4d07; }
+    @media (prefers-color-scheme: dark) {
+      .lesson-card:nth-child(2) .lesson-visual { background: #203e36; color: #a8dac8; }
+      .lesson-card:nth-child(3) .lesson-visual { background: #49351d; color: #ffd49f; }
+    }
+    .lesson-info { padding: 18px; }
+    .lesson-info small { color: var(--muted); font-weight: 600; }
+    .lesson-info h3 { font-size: 16px; margin: 7px 0 0; }
+    .launch-note { color: var(--muted); font-size: 13px; margin: 22px 0 0; }
+
+    .platform { background: var(--paper); }
+    .platform-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 46px; align-items: stretch; }
+    .platform-main { background: #171527; color: #fff; border-radius: 30px 8px 30px 30px; padding: 42px; position: relative; overflow: hidden; }
+    .platform-main::after { content: ""; position: absolute; width: 180px; height: 180px; border: 1px solid rgba(211,168,79,.35); border-radius: 50%; right: -70px; top: -70px; box-shadow: 0 0 0 24px rgba(111,43,189,.12); }
+    .platform-label { color: #f0bf62; font-size: 13px; font-weight: 700; margin-bottom: 48px; }
+    .platform-main h2 { font-family: Lora, serif; font-size: clamp(34px, 5vw, 52px); line-height: 1.08; letter-spacing: -.035em; max-width: 620px; margin-bottom: 18px; position: relative; z-index: 1; }
+    .platform-main p { color: rgba(255,255,255,.72); max-width: 640px; margin-bottom: 0; }
+    .platform-stack { display: grid; gap: 14px; }
+    .platform-card { border: 1px solid var(--line); padding: 24px; border-radius: 18px; background: var(--bg); }
+    .platform-card b { display: block; margin-bottom: 6px; font-size: 17px; }
+    .platform-card p { color: var(--muted); font-size: 14px; margin: 0; }
+
+    .pricing { background: var(--bg); }
+    .pricing-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 30px; align-items: stretch; }
+    .launch-offer { background: var(--purple-dark); color: #fff; border-radius: 8px 30px 30px 30px; padding: 40px; }
+    @media (prefers-color-scheme: dark) { .launch-offer { background: #2a153f; } }
+    .launch-offer .offer-kicker { color: #f0bf62; font-weight: 700; font-size: 13px; }
+    .launch-offer strong { display: block; font-family: Lora, serif; font-size: clamp(45px, 7vw, 76px); line-height: 1; margin: 32px 0 15px; }
+    .launch-offer p { color: rgba(255,255,255,.75); margin-bottom: 0; }
+    .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .plan { background: var(--paper); border: 1px solid var(--line); padding: 25px; border-radius: 18px; }
+    .plan h3 { font-size: 18px; margin-bottom: 8px; }
+    .plan p { color: var(--muted); font-size: 14px; margin: 0; }
+    .plan .saving { display: inline-block; color: var(--sage); font-size: 12px; font-weight: 700; margin-top: 14px; }
+    .pricing-note { color: var(--muted); font-size: 13px; margin: 18px 0 0; }
+
+    .faq { background: var(--paper); }
+    .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; }
+    .faq h2 { font-family: Lora, serif; font-size: clamp(36px, 5vw, 54px); line-height: 1.08; letter-spacing: -.035em; }
+    .faq-list { border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; list-style: none; padding: 24px 38px 24px 0; font-weight: 700; position: relative; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 4px; top: 18px; font-size: 28px; font-weight: 400; color: var(--purple); }
+    details[open] summary::after { content: "–"; }
+    details p { color: var(--muted); margin: -6px 0 22px; max-width: 720px; }
+
+    .closing { padding: 90px 0; background: var(--bg); }
+    .closing-card { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; background: var(--purple-dark); color: #fff; padding: 52px; border-radius: var(--radius-lg); }
+    @media (prefers-color-scheme: dark) { .closing-card { background: #321640; } }
+    .closing-card h2 { font-family: Lora, serif; font-size: clamp(34px, 5vw, 52px); line-height: 1.08; letter-spacing: -.035em; margin-bottom: 12px; }
+    .closing-card p { color: rgba(255,255,255,.72); margin-bottom: 0; }
+    .closing-card .button { background: #fff; color: #3e1357; white-space: nowrap; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 38px; color: var(--muted); font-size: 13px; }
+    .footer-grid { display: flex; justify-content: space-between; gap: 22px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .finder-grid, .teacher-grid, .platform-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 54px; }
+      .hero-grid { gap: 38px; }
+      .hero-art { min-height: 390px; }
+      .logo-stage { width: 78%; }
+      .floating-note { right: 3%; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .trust-item:nth-child(2) { border-right: 0; }
+      .trust-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .section-head { align-items: start; flex-direction: column; }
+      .steps { grid-template-columns: 1fr; }
+      .step { border-right: 0; border-bottom: 1px solid var(--line); min-height: 0; }
+      .step:last-child { border-bottom: 0; }
+      .step-num { margin-bottom: 28px; }
+      .finder-grid { gap: 34px; }
+      .level-card:nth-child(2), .level-card:nth-child(3) { margin-top: 0; }
+      .level-grid, .lesson-preview { grid-template-columns: 1fr; }
+      .teacher-grid { gap: 44px; }
+      .platform-grid { gap: 18px; }
+      .closing-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 28px, 1180px); }
+      .menu-button { display: block; }
+      .nav-links {
+        position: fixed;
+        inset: 68px 0 auto;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 12px 20px 24px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 18px 30px rgba(0,0,0,.12);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 14px 4px; }
+      .nav-links .nav-cta { margin-top: 8px; text-align: center; padding: 11px 16px; }
+      .hero { padding: 42px 0 48px; }
+      h1 { font-size: 44px; }
+      .hero-copy > p { font-size: 16px; }
+      .hero-actions .button { width: 100%; }
+      .hero-art { min-height: 350px; }
+      .logo-stage { width: 95%; padding: 14px; border-radius: 26px 26px 26px 10px; }
+      .logo-stage video { border-radius: 16px; }
+      .logo-still { width: 82px; left: 0; top: -12px; }
+      .floating-note { width: 190px; padding: 14px 15px; right: 0; bottom: 2px; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .trust-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .trust-item:last-child { border-bottom: 0; }
+      section { padding: 70px 0; }
+      .section-head { margin-bottom: 32px; }
+      .step { padding: 30px 24px; }
+      .finder-panel { padding: 24px; min-height: 400px; }
+      .board { min-height: 360px; padding: 38px 26px; border-width: 9px; }
+      .teacher-points { grid-template-columns: 1fr; }
+      .library-shell { padding: 32px 20px; border-radius: 24px; }
+      .library-top { align-items: start; flex-direction: column; }
+      .platform-main, .launch-offer { padding: 30px 24px; }
+      .plans { grid-template-columns: 1fr; }
+      .closing { padding: 70px 0; }
+      .closing-card { padding: 34px 24px; }
+      .closing-card .button { width: 100%; }
+      .footer-grid { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav-shell">
+    <nav class="wrap" aria-label="Primary navigation">
+      <div class="phase-mark">Hindi · Phase 1</div>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round" /></svg>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#how">How it works</a>
+        <a href="#levels">Learning stages</a>
+        <a href="#teacher">Your teacher</a>
+        <a href="#classroom">Live classroom</a>
+        <a href="#pricing">Plans</a>
+        <a href="data:application/octet-stream;base64,IyBSaHlWaWR5YSDigJQgUHJvZHVjdCBSZXF1aXJlbWVudHMgRG9jdW1lbnQKCioqVmVyc2lvbjoqKiAwLjMgRFJBRlQg4oCUIE9jdG9iZXIgMTEsIDIwMjYKKipTdGF0dXM6KiogRHJhZnQg4oCUIG5hbWUgbG9ja2VkLCBQaGFzZSAxID0gSGluZGkgbG9ja2VkLCBsb2dvICsgcHJpY2luZyBsb2NrZWQgT2N0IDExLCAyMDI2CioqQXV0aG9yOioqIFJoeXRlY2ggR2xvYmFsIFNvbHV0aW9ucwoKKipMb2dvIChGSU5BTCDigJQgUmh5dGVjaCB0aGVtZSk6KiogYHdvcmtzcGFjZS9yaHl0ZWNoLWNvbnRlbnQvYnJhbmQvbWVkaWEtZ2VuZXJhdGlvbi1yaHl2aWR5YS1sb2dvLXJoeXRlY2gtdGhlbWUtMC0yMmQ5NjViYy1lZmMyLTRiMTMtYTllZS05MjFiZjhhOTE4M2Qud2VicGAg4oCUIDNEIHB1cnBsZSAiUiIgb3ZlciBhIGdsb3dpbmcgb3BlbiBib29rLCBnb2xkIHN0YXIsICJSaHlWaWR5YSIgaW4gdmlvbGV0L2dvbGQuIFJlY3JlYXRlZCBPY3QgMTEsIDIwMjYgaW4gUmh5dGVjaCdzIHNpZ25hdHVyZSB2aW9sZXQuCioqQW5pbWF0ZWQgbG9nbzoqKiBgd29ya3NwYWNlL3JoeXRlY2gtY29udGVudC9icmFuZC9tZWRpYS1nZW5lcmF0aW9uLXJoeXZpZHlhLWxvZ28tcmV2ZWFsLXJoeXRlY2gtdC0wLTVlYzY4YzUzLTAwZjAtNDkwYy04MTY1LTQxOTQ1NjZhZTU4NS5tcDRgIOKAlCBsb2dvIHJldmVhbCBhbmltYXRpb24gKGJvb2sgb3BlbnMg4oaSIFIgZm9ybXMgZnJvbSBsaWdodCDihpIgc3RhciDihpIgdGV4dCByZXZlYWwpLCB1c2VkIG9uIHRoZSB3ZWJzaXRlIGhlcm8uCioqVGhlbWU6KiogZGFyayBiYWNrZ3JvdW5kLCBSaHl0ZWNoIHZpb2xldCArIGdvbGQgYWNjZW50cyAobWF0Y2hlcyBsb2dvKS4KKipUYWdsaW5lOioqICpLbm93bGVkZ2UgaXMgUG93ZXIqIOKAlCBMZWFybiDigKIgQ3JlYXRlIOKAoiBFbXBvd2VyCgoqKlRlYWNoZXIgKFBoYXNlIDEpOioqIFNhcmFzd2F0aGkgKEluZGlhKQoKLS0tCgojIyAxLiBQcm9kdWN0IGlkZW50aXR5Cgp8IEl0ZW0gfCBQcm9wb3NhbCB8CnwtLS18LS0tfAp8IFdvcmtpbmcgbmFtZSB8ICoqUmh5VmlkeWEqKiDigJQgbG9ja2VkIE9jdCAxMSwgMjAyNiB8CnwgVGFnbGluZSB8ICpMZWFybiBmcm9tIGhvbWUuIFRhdWdodCB3aXRoIGhlYXJ0LiogfAp8IFBvc2l0aW9uaW5nIHwgTm90IGEgY291cnNlIG1hcmtldHBsYWNlIOKAlCBsaXZlLCBodW1hbiB0ZWFjaGluZyBieSB2ZXJpZmllZCBJbmRpYW4gdGVhY2hlcnMgZm9yIHN0dWRlbnRzIGFueXdoZXJlIGluIHRoZSB3b3JsZCwgcGx1cyBhIHZpZGVvIGxpYnJhcnkuIHwKfCBSZWZlcmVuY2UgbW9kZWxzIHwgUHJlcGx5IC8gU3VwZXJwcm9mICgxOjEgYm9va2luZykgKyBZb3VUdWJlLXN0eWxlIHZpZGVvIGxpYnJhcnkgKyBXaGF0c0FwcC1saWtlIHN0dWRlbnQtdGVhY2hlciBtZXNzYWdpbmcuIHwKCiMjIDIuIFZpc2lvbiAmIG1hcmtldAoKLSAqKlZpc2lvbjoqKiBBbnkgc3R1ZGVudCBpbiB0aGUgd29ybGQgY2FuIGxlYXJuIGFueSBzdWJqZWN0IGxpdmUgZnJvbSBhIHRlYWNoZXIgaW4gSW5kaWEg4oCUIGFmZm9yZGFibGUsIHBlcnNvbmFsLCBhbmQgaW50ZXJhY3RpdmUuCi0gKipQaGFzZSAxOioqICoqSGluZGkuKiogU2luZ2xlIHRlYWNoZXIgKFNhcmFzd2F0aGksIEluZGlhKSDihpIgc3R1ZGVudHMgd29ybGR3aWRlLgotICoqUGhhc2UgMjoqKiBPdGhlciBzdWJqZWN0cy9sYW5ndWFnZXMgKGUuZy4gVGFtaWwpICsgKipuZXcgdGVhY2hlciBoaXJpbmcqKiDigJQgUmh5dGVjaCBoaXJlcyBtdWx0aXBsZSB0ZWFjaGVycyBvbnRvIHRoZSBwbGF0Zm9ybS4KLSAqKlVuZmFpciBhZHZhbnRhZ2U6KiogU3RhcnRzIHdpdGggYSByZWFsIHRlYWNoZXIgcmVhZHkgdG8gdGVhY2ggbm93IOKAlCB0aGUgcHJvZHVjdCBpcyB0aGUgYm9va2luZyBmbG93LCB2aWRlbyBsaWJyYXJ5LCBhbmQgY2xhc3Nyb29tIGV4cGVyaWVuY2UgYXJvdW5kIHRoZW0uCgojIyAzLiBSb2xlcwoKfCBSb2xlIHwgRGVzY3JpcHRpb24gfAp8LS0tfC0tLXwKfCBUZWFjaGVyIChhZG1pbikgfCBVcGxvYWRzIHZpZGVvcywgcnVucyBsaXZlIGNsYXNzZXMsIG1hbmFnZXMgY2FsZW5kYXIvYXBwb2ludG1lbnRzLCB0ZWFjaGVzIHdpdGggYm9hcmQsIGludGVyYWN0cyB3aXRoIHN0dWRlbnRzIHwKfCBTdHVkZW50IHwgUmVnaXN0ZXJzLCBkZWNsYXJlcyBIaW5kaSBsZXZlbCwgYm9va3MgYXBwb2ludG1lbnRzLCB3YXRjaGVzIHZpZGVvcywgbWVzc2FnZXMvY2FsbHMvZW1haWxzIHRlYWNoZXIgfAoKUGhhc2UgMSBhc3N1bWVzIGEgKipzaW5nbGUgdGVhY2hlcioqLiBNdWx0aS10ZWFjaGVyIHN1cHBvcnQgaXMgYSBQaGFzZSAyIGl0ZW0uCgojIyA0LiBUZWFjaGVyIGZlYXR1cmVzIChhZG1pbikKCiMjIyA0LjEgVmlkZW8gbGlicmFyeQotIFVwbG9hZCBwcmUtcmVjb3JkZWQgdGVhY2hpbmcgdmlkZW9zIChzdWJqZWN0L3RvcGljL2xldmVsIHRhZ2dlZCkuCi0gT3JnYW5pemUgaW50byBwbGF5bGlzdHMgYnkgSGluZGkgc3RhZ2UgKHNlZSA2LjIpLgotIFBoYXNlIDE6ICoqdmlkZW9zIGFyZSBmcmVlIHRvIHdhdGNoKiogKGdyb3d0aCBzdHJhdGVneSkuCgojIyMgNC4yIExpdmUgY2xhc3NlcwotIFRlYWNoZXIgY3JlYXRlcyBhIGxpdmUgY2xhc3M6IHN1YmplY3QsIHRvcGljLCBkYXRlL3RpbWUsIGR1cmF0aW9uLCBtYXggc3R1ZGVudHMuCi0gKipUZWFjaGluZyBhcHA6IEdvb2dsZSBNZWV0IChjb25maXJtZWQgZm9yIFBoYXNlIDEpLioqIFllcywgTWVldCB3b3JrcyDigJQgZnJlZSwgbm8gaW5zdGFsbHMgZm9yIHN0dWRlbnRzLCBzY3JlZW4gc2hhcmUgZm9yIHRoZSBib2FyZCwgbGFyZ2VyIGNsYXNzIHNpemVzIHRoYW4gV2hhdHNBcHAgdmlkZW8uCi0gKipXaGF0c0FwcCBjb250aW51ZXMqKiBmb3Igd2hhdCBpdCdzIHVzZWQgZm9yIHRvZGF5OiBtZXNzYWdpbmcsIGNvb3JkaW5hdGlvbiwgcmVtaW5kZXJzLCBxdWljayBkb3VidHMuIENsYXNzZXMgbW92ZSB0byBNZWV0OyBjaGF0IHN0YXlzIG9uIFdoYXRzQXBwLgotIFN0dWRlbnRzIGpvaW4gZnJvbSB0aGUgY2xhc3MgcGFnZTsgYXR0ZW5kYW5jZSByZWNvcmRlZC4KCiMjIyA0LjMgQm9hcmQgdGVhY2hpbmcKLSBUZWFjaGVyIHNoYXJlcyBhIGJvYXJkIGR1cmluZyBsaXZlIGNsYXNzOiBwaHlzaWNhbCB3aGl0ZWJvYXJkIG9uIGNhbWVyYSwgb3IgZGlnaXRhbCB3aGl0ZWJvYXJkIC8gc2NyZWVuIHNoYXJlLgotIFBoYXNlIDE6IHNjcmVlbiBzaGFyZSB2aWEgTWVldCBpcyBlbm91Z2g7IGRlZGljYXRlZCBpbi1hcHAgd2hpdGVib2FyZCBpcyBQaGFzZSAyLgoKIyMjIDQuNCBDYWxlbmRhciAmIGFwcG9pbnRtZW50cwotIFRlYWNoZXIgc2VlcyBhbGwgdXBjb21pbmcgMToxIGFwcG9pbnRtZW50cyBhbmQgbGl2ZSBjbGFzc2VzIG9uIGEgY2FsZW5kYXIuCi0gVGVhY2hlciBjYW4gY3JlYXRlLCByZXNjaGVkdWxlLCBvciBjYW5jZWwgc2xvdHM7IHN0dWRlbnRzIGFyZSBub3RpZmllZCBhdXRvbWF0aWNhbGx5LgoKIyMjIDQuNSBJbi1jbGFzcyBpbnRlcmFjdGlvbgotIExpdmUgY2hhdCBkdXJpbmcgY2xhc3MsIGhhbmQtcmFpc2UgLyBRJkEsIHBvbGxzIGZvciBxdWljayBjaGVja3MuCgojIyA1LiBTdHVkZW50IGZlYXR1cmVzCgojIyMgNS4xIFJlZ2lzdHJhdGlvbiAmIEhpbmRpIGxldmVsCi0gU3R1ZGVudCByZWdpc3RlcnMgd2l0aDogbmFtZSwgZW1haWwsIHBob25lLCBjb3VudHJ5L3RpbWV6b25lLCBhZ2UgZ3JvdXAuCi0gKipIaW5kaSBzdGFnZSBhc3Nlc3NtZW50IGF0IGVucm9sbG1lbnQqKiDigJQgc3R1ZGVudCBkZWNsYXJlcyAob3IgaXMgdGVzdGVkIG9uKToKICAtIFN0YWdlOiAqKkJlZ2lubmVyIC8gSW50ZXJtZWRpYXRlIC8gQWR2YW5jZWQqKgogIC0gU2tpbGxzIHBlciBzdGFnZTogc3BlYWtpbmcsIHJlYWRpbmcgKERldmFuYWdhcmkpLCB3cml0aW5nCi0gVGVhY2hlciB1c2VzIHRoaXMgdG8gcmVjb21tZW5kIHZpZGVvcyBhbmQgcGxhY2Ugc3R1ZGVudHMgaW4gdGhlIHJpZ2h0IGxpdmUgYmF0Y2hlcy4KCiMjIyA1LjIgQm9vayBhcHBvaW50bWVudAotIFN0dWRlbnQgYnJvd3NlcyB0ZWFjaGVyJ3MgYXZhaWxhYmxlIHNsb3RzIChzaG93biBpbiBzdHVkZW50J3MgbG9jYWwgdGltZXpvbmUpLgotIEJvb2tzIGEgMToxIGFwcG9pbnRtZW50OyByZWNlaXZlcyBjb25maXJtYXRpb24gKyBNZWV0IGxpbmsgKyByZW1pbmRlcnMuCgojIyMgNS4zIFZpZGVvIGxpYnJhcnkKLSBCcm93c2Uvc2VhcmNoIHVwbG9hZGVkIHZpZGVvcyBieSBzdWJqZWN0LCB0b3BpYywgSGluZGkgc3RhZ2UuCi0gKipGcmVlIGluIFBoYXNlIDEqKiDigJQgbm8gcGF5d2FsbCBvbiB2aWRlb3MuCgojIyMgNS40IE1lc3NhZ2luZyAmIGNvbnRhY3QKLSAqKkluLWFwcCBjaGF0Ym90IC8gbWVzc2FnaW5nOioqIHN0dWRlbnQgc2VuZHMgbWVzc2FnZXMgdG8gdGhlIHRlYWNoZXI7IHNpbXBsZSBhdXRvLXJlcGxpZXMgZm9yIEZBUXMgKHRpbWluZ3MsIGZlZXMsIHN5bGxhYnVzKS4KLSAqKkVtYWlsIHRoZSB0ZWFjaGVyKiogZnJvbSB0aGUgcGxhdGZvcm0uCi0gKipDYWxsIHRoZSB0ZWFjaGVyKiog4oCUIHNjaGVkdWxlZCBjYWxsIHNsb3RzIChub3Qgb3BlbiBjb2xkLWNhbGxpbmcpOyBwcm90ZWN0cyB0ZWFjaGVyJ3MgcGVyc29uYWwgbnVtYmVyIHZpYSBtYXNrZWQgY2FsbGluZyBvciBzY2hlZHVsZWQgTWVldCBhdWRpby4KCiMjIDYuIFN0dWRlbnQgaW5mbyAoZGF0YSBjYXB0dXJlZCkKCi0gSWRlbnRpdHk6IG5hbWUsIGVtYWlsLCBwaG9uZSwgY291bnRyeSwgdGltZXpvbmUsIGFnZSBncm91cAotIExlYXJuaW5nIHByb2ZpbGU6IEhpbmRpIHN0YWdlIChCZWdpbm5lci9JbnRlcm1lZGlhdGUvQWR2YW5jZWQpLCBza2lsbCBicmVha2Rvd24gKHNwZWFraW5nL3JlYWRpbmcvd3JpdGluZyksIGxlYXJuaW5nIGdvYWwgKHNjaG9vbCwgdHJhdmVsLCBoZXJpdGFnZSwgZXhhbSkKLSBBY3Rpdml0eTogdmlkZW9zIHdhdGNoZWQsIGNsYXNzZXMgYXR0ZW5kZWQsIGFwcG9pbnRtZW50cyBoaXN0b3J5CgojIyA3LiBQcmljaW5nIChsb2NrZWQgT2N0IDExLCAyMDI2KQoKLSAqKkxhdW5jaCBvZmZlcjogZmlyc3QgbW9udGggRlJFRSoqIHdoZW4gdGhlIHByb2R1Y3QgbGF1bmNoZXMuCi0gKipBZnRlciB0aGUgZnJlZSBtb250aDoqKiAxLW1vbnRoIGRlcG9zaXQgKyBtb250aGx5IGZlZS4KLSAqKlBsYW5zOioqIE1vbnRobHksIFF1YXJ0ZXJseSwgSGFsZi15ZWFybHksIFllYXJseS4KLSAqKkRpc2NvdW50czoqKiBsb25nZXIgY29tbWl0bWVudCA9IGJpZ2dlciBkaXNjb3VudCAoWWVhcmx5ID4gSGFsZi15ZWFybHkgPiBRdWFydGVybHkgPiBNb250aGx5KS4KLSAqKlZpZGVvczogZnJlZSoqIGluIFBoYXNlIDEgKGdyb3d0aCkuCi0gTm8gaGlkZGVuIGNoYXJnZXMg4oCUIGV2ZXIuCgojIyA3QS4gRGVzaWduIHByaW5jaXBsZQoKLSAqKlRoZSBwcm9kdWN0IG11c3QgYmUgdXNlci1mcmllbmRseS4qKiBTaW1wbGUgZW5vdWdoIGZvciBwYXJlbnRzIGFuZCBraWRzLCB3b3JrcyBvbiBiYXNpYyBwaG9uZXMsIGJpZyBidXR0b25zLCBtaW5pbWFsIHN0ZXBzIHRvIGJvb2sgYW5kIGpvaW4gYSBjbGFzcy4KCiMjIDguIFBoYXNlIHBsYW4KCnwgUGhhc2UgfCBTY29wZSB8CnwtLS18LS0tfAp8IDEgfCBIaW5kaSBvbmx5LCBzaW5nbGUgdGVhY2hlciAoSW5kaWEpLCBzdHVkZW50cyB3b3JsZHdpZGUuIFZpZGVvIGxpYnJhcnkgKGZyZWUpLCBsaXZlIGNsYXNzZXMgdmlhIEdvb2dsZSBNZWV0LCBhcHBvaW50bWVudCBib29raW5nLCBjYWxlbmRhciBtYW5hZ2VtZW50LCBzdHVkZW50IHJlZ2lzdHJhdGlvbiB3aXRoIEhpbmRpLXN0YWdlIHByb2ZpbGluZywgbWVzc2FnaW5nL2VtYWlsL3NjaGVkdWxlZCBjYWxscyB8CnwgMiB8IE1vcmUgc3ViamVjdHMsIG11bHRpcGxlIHRlYWNoZXJzLCBpbi1hcHAgdmlkZW8gKEppdHNpIGVtYmVkKSwgZGVkaWNhdGVkIHdoaXRlYm9hcmQsIHBhaWQgdGllcnMsIG1vYmlsZSBhcHAgfAoKIyMgOS4gU3VjY2VzcyBtZXRyaWNzIChQaGFzZSAxKQoKLSAxMDAgcmVnaXN0ZXJlZCBzdHVkZW50cyBpbiBmaXJzdCAzIG1vbnRocwotIDQwJSsgb2YgcmVnaXN0ZXJlZCBzdHVkZW50cyBhdHRlbmQgYXQgbGVhc3Qgb25lIGxpdmUgY2xhc3MKLSBBdmVyYWdlIGNsYXNzIHJhdGluZyDiiaUgNC41LzUKLSBWaWRlbyBsaWJyYXJ5OiAzMCsgSGluZGkgdmlkZW9zIHB1Ymxpc2hlZCAoYWxsIDMgc3RhZ2VzIGNvdmVyZWQpCgojIyAxMC4gT3BlbiBxdWVzdGlvbnMKCjEuIH5+UHJvZHVjdCBuYW1lfn4g4oCUIGRlY2lkZWQ6ICoqUmh5VmlkeWEqKiAoT2N0IDExLCAyMDI2KS4KMi4gfn5QaGFzZSAxIGxhbmd1YWdlfn4g4oCUIGRlY2lkZWQ6ICoqSGluZGkqKiBpbiBQaGFzZSAxOyBvdGhlciBzdWJqZWN0cyArIG5ldyB0ZWFjaGVyIGhpcmluZyBpbiBQaGFzZSAyIChPY3QgMTEsIDIwMjYpLgoyLiBMaXZlIGNsYXNzIC8gYXBwb2ludG1lbnQgcHJpY2luZyDigJQgcGVyLXNlc3Npb24gZmVlPyBQYWNrYWdlcz8KMy4gQ2hhdGJvdCBzY29wZSDigJQgc2ltcGxlIEZBUSBhdXRvLXJlcGxpZXMsIG9yIEFJIHR1dG9yIGZvciBIaW5kaSBwcmFjdGljZT8KNC4gVGVhY2hlciBvbmJvYXJkaW5nIOKAlCBpcyBQaGFzZSAxIGxpdGVyYWxseSBvbmUgbmFtZWQgdGVhY2hlcj8gV2hvPwo1LiBTdHVkZW50IGFnZSByYW5nZSDigJQga2lkcywgYWR1bHRzLCBvciBib3RoPyAoYWZmZWN0cyBzYWZlZ3VhcmRpbmcgbmVlZHMpCg==" download>Requirements</a>
+        <a class="nav-cta" href="#stage-finder">Find my stage</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Live Hindi learning <span>· Students worldwide</span></p>
+          <h1>Hindi that feels <em>close</em>, wherever home is.</h1>
+          <p>Learn live with Saraswathi in a simple Google Meet classroom, build confidence at your pace, and keep practising with videos shaped around your level.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#stage-finder">Find my Hindi stage</a>
+            <a class="button secondary" href="#how">See how it works</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="RhyVidya animated logo reveal and Hindi greeting">
+          <div class="logo-stage">
+            <video autoplay muted loop playsinline poster="logo.webp" aria-label="Animated RhyVidya logo reveal">
+              <source src="logo-reveal.mp4" />
+              <img src="logo.webp" alt="RhyVidya 3D violet and gold logo rising from an open book" />
+            </video>
+          </div>
+          <div class="logo-still"><img src="logo.webp" alt="RhyVidya violet and gold brand mark" /></div>
+          <div class="floating-note"><b lang="hi">नमस्ते!</b><span>Your first confident word starts here.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="wrap trust-grid">
+        <div class="trust-item"><b>Google Meet classes</b><span>Reliable live video, screen share, and board teaching</span></div>
+        <div class="trust-item"><b>WhatsApp support</b><span>Reminders and quick communication stay familiar</span></div>
+        <div class="trust-item"><b>First month free</b><span>Launch offer for new students</span></div>
+        <div class="trust-item"><b>Easy at every step</b><span>Clear booking, joining, and learning flow</span></div>
+      </div>
+    </div>
+
+    <section class="route" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>A simple route from curious to confident.</h2>
+          <p>No course maze. The experience is designed to be clear for students and families—from registration to joining class.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><span class="step-num">01</span><h3>Find your stage</h3><p>Choose what you can already speak, read, and write. We place you at Beginner, Intermediate, or Advanced.</p></article>
+          <article class="step"><span class="step-num">02</span><h3>Book and join easily</h3><p>Select an available appointment, receive the Google Meet link, and join in one tap. Your time is shown in your own timezone.</p></article>
+          <article class="step"><span class="step-num">03</span><h3>Stay supported</h3><p>Review teacher-uploaded videos, send questions through the student chat, and use WhatsApp for reminders and quick support.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform" id="classroom">
+      <div class="wrap platform-grid">
+        <div class="platform-main">
+          <div class="platform-label">Phase 1 teaching setup</div>
+          <h2>Google Meet for class. WhatsApp for support.</h2>
+          <p>Google Meet works well for RhyVidya’s live lessons: Saraswathi can teach on camera, share her screen or digital board, and speak with students in real time. WhatsApp remains the familiar channel for reminders, quick questions, and backup communication—not the main classroom.</p>
+        </div>
+        <div class="platform-stack">
+          <article class="platform-card"><b>Live lesson</b><p>Google Meet link attached to each booked appointment, with camera, microphone, chat, screen sharing, and board support.</p></article>
+          <article class="platform-card"><b>Student communication</b><p>In-platform messages for learning questions, plus WhatsApp for class reminders and urgent schedule updates.</p></article>
+          <article class="platform-card"><b>Simple by design</b><p>Large actions, plain language, timezone-aware appointments, and a one-tap path from reminder to classroom.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stage-finder" id="stage-finder">
+      <div class="wrap finder-grid">
+        <div class="finder-copy">
+          <h2>Where should you begin?</h2>
+          <p>Answer two quick questions for a starting-stage suggestion. Your teacher can confirm the best fit when registration opens.</p>
+        </div>
+        <div class="finder-panel" id="finderPanel" aria-live="polite">
+          <div class="question-count">Question 1 of 2</div>
+          <h3>How comfortable are you speaking Hindi?</h3>
+          <div class="answer-list">
+            <button class="answer" data-speaking="0">I’m starting with my first words</button>
+            <button class="answer" data-speaking="1">I can manage simple conversations</button>
+            <button class="answer" data-speaking="2">I can discuss most everyday topics</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="curriculum" id="levels">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>One language. Three thoughtful stages.</h2>
+          <p>Every stage balances speaking with Devanagari reading and writing, so progress feels useful—not abstract.</p>
+        </div>
+        <div class="level-grid">
+          <article class="level-card"><div class="level-tag">Beginner</div><div class="devanagari" lang="hi">नमस्ते</div><h3>Build your foundation</h3><p>Start speaking naturally while learning the alphabet and everyday sentence patterns.</p><ul><li>Greetings and introductions</li><li>Devanagari letter sounds</li><li>Numbers, family, food</li></ul></article>
+          <article class="level-card"><div class="level-tag">Intermediate</div><div class="devanagari" lang="hi">बातचीत</div><h3>Grow your range</h3><p>Move from rehearsed phrases to richer conversations, stories, and confident reading.</p><ul><li>Everyday conversations</li><li>Reading short passages</li><li>Grammar in real context</li></ul></article>
+          <article class="level-card"><div class="level-tag">Advanced</div><div class="devanagari" lang="hi">अभिव्यक्ति</div><h3>Express with nuance</h3><p>Refine accuracy, vocabulary, and cultural fluency for deeper communication.</p><ul><li>Complex conversation</li><li>Writing with confidence</li><li>Literature and culture</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="teacher" id="teacher">
+      <div class="wrap teacher-grid">
+        <div class="board" aria-label="Chalkboard with Hindi lesson greeting">
+          <div class="hindi" lang="hi">आप कैसे हैं?</div>
+          <div class="chalk">How are you?</div>
+          <div class="lesson">Today: speaking with confidence</div>
+        </div>
+        <div class="teacher-copy">
+          <div class="teacher-label">Meet your Phase 1 teacher</div>
+          <h2>Learn live with Saraswathi.</h2>
+          <p>Based in India and ready to teach students around the world, Saraswathi leads personal Hindi lessons through Google Meet, using live video, screen sharing, and an interactive teaching board.</p>
+          <div class="teacher-points">
+            <div class="teacher-point"><b>Personal guidance</b>Level-aware lessons shaped around each student’s goal.</div>
+            <div class="teacher-point"><b>Interactive classes</b>Ask questions, practise aloud, and learn from a shared board.</div>
+            <div class="teacher-point"><b>Flexible appointments</b>Book 1:1 time around available teaching slots.</div>
+            <div class="teacher-point"><b>Between-class support</b>Review videos and send questions through the platform.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="library" id="library">
+      <div class="wrap library-shell">
+        <div class="library-top">
+          <div><h2>Your free practice shelf.</h2><p>Short, stage-based videos will help you review whenever it suits you.</p></div>
+          <div class="free-label">Free in Phase 1</div>
+        </div>
+        <div class="lesson-preview">
+          <article class="lesson-card"><div class="lesson-visual"><span lang="hi">अ आ</span></div><div class="lesson-info"><small>Beginner · Script</small><h3>Meet the first Devanagari sounds</h3></div></article>
+          <article class="lesson-card"><div class="lesson-visual"><span lang="hi">मैं हूँ</span></div><div class="lesson-info"><small>Beginner · Speaking</small><h3>Introduce yourself naturally</h3></div></article>
+          <article class="lesson-card"><div class="lesson-visual"><span lang="hi">कहानी</span></div><div class="lesson-info"><small>Intermediate · Reading</small><h3>Read and retell a short story</h3></div></article>
+        </div>
+        <p class="launch-note">The video library is being prepared for launch; these cards show the planned learning format. Phase 1 videos will remain free to watch.</p>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Begin freely. Continue with the plan that fits.</h2>
+          <p>RhyVidya’s launch model gives families time to experience the classes before choosing a paid subscription.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="launch-offer">
+            <div class="offer-kicker">Launch offer</div>
+            <strong>1 month free</strong>
+            <p>New students can experience RhyVidya for their first month at no tuition cost. Afterward, continued learning moves to a paid plan with a one-month fee deposit.</p>
+          </article>
+          <div>
+            <div class="plans">
+              <article class="plan"><h3>Monthly</h3><p>Pay month by month after the free launch period, with a one-month fee deposit when the paid plan begins.</p></article>
+              <article class="plan"><h3>Quarterly</h3><p>Pay every three months for a longer commitment and a subscription discount.</p><span class="saving">Discount planned</span></article>
+              <article class="plan"><h3>Half-yearly</h3><p>Six months of continued learning with a larger subscription discount.</p><span class="saving">Higher discount planned</span></article>
+              <article class="plan"><h3>Yearly</h3><p>A full-year option designed to offer the best overall subscription value.</p><span class="saving">Best discount planned</span></article>
+            </div>
+            <p class="pricing-note">Exact tuition, deposit terms, and discount percentages will be published before enrollment opens. <a href="data:application/octet-stream;base64,IyBSaHlWaWR5YSDigJQgUHJvZHVjdCBSZXF1aXJlbWVudHMgRG9jdW1lbnQKCioqVmVyc2lvbjoqKiAwLjMgRFJBRlQg4oCUIE9jdG9iZXIgMTEsIDIwMjYKKipTdGF0dXM6KiogRHJhZnQg4oCUIG5hbWUgbG9ja2VkLCBQaGFzZSAxID0gSGluZGkgbG9ja2VkLCBsb2dvICsgcHJpY2luZyBsb2NrZWQgT2N0IDExLCAyMDI2CioqQXV0aG9yOioqIFJoeXRlY2ggR2xvYmFsIFNvbHV0aW9ucwoKKipMb2dvIChGSU5BTCDigJQgUmh5dGVjaCB0aGVtZSk6KiogYHdvcmtzcGFjZS9yaHl0ZWNoLWNvbnRlbnQvYnJhbmQvbWVkaWEtZ2VuZXJhdGlvbi1yaHl2aWR5YS1sb2dvLXJoeXRlY2gtdGhlbWUtMC0yMmQ5NjViYy1lZmMyLTRiMTMtYTllZS05MjFiZjhhOTE4M2Qud2VicGAg4oCUIDNEIHB1cnBsZSAiUiIgb3ZlciBhIGdsb3dpbmcgb3BlbiBib29rLCBnb2xkIHN0YXIsICJSaHlWaWR5YSIgaW4gdmlvbGV0L2dvbGQuIFJlY3JlYXRlZCBPY3QgMTEsIDIwMjYgaW4gUmh5dGVjaCdzIHNpZ25hdHVyZSB2aW9sZXQuCioqQW5pbWF0ZWQgbG9nbzoqKiBgd29ya3NwYWNlL3JoeXRlY2gtY29udGVudC9icmFuZC9tZWRpYS1nZW5lcmF0aW9uLXJoeXZpZHlhLWxvZ28tcmV2ZWFsLXJoeXRlY2gtdC0wLTVlYzY4YzUzLTAwZjAtNDkwYy04MTY1LTQxOTQ1NjZhZTU4NS5tcDRgIOKAlCBsb2dvIHJldmVhbCBhbmltYXRpb24gKGJvb2sgb3BlbnMg4oaSIFIgZm9ybXMgZnJvbSBsaWdodCDihpIgc3RhciDihpIgdGV4dCByZXZlYWwpLCB1c2VkIG9uIHRoZSB3ZWJzaXRlIGhlcm8uCioqVGhlbWU6KiogZGFyayBiYWNrZ3JvdW5kLCBSaHl0ZWNoIHZpb2xldCArIGdvbGQgYWNjZW50cyAobWF0Y2hlcyBsb2dvKS4KKipUYWdsaW5lOioqICpLbm93bGVkZ2UgaXMgUG93ZXIqIOKAlCBMZWFybiDigKIgQ3JlYXRlIOKAoiBFbXBvd2VyCgoqKlRlYWNoZXIgKFBoYXNlIDEpOioqIFNhcmFzd2F0aGkgKEluZGlhKQoKLS0tCgojIyAxLiBQcm9kdWN0IGlkZW50aXR5Cgp8IEl0ZW0gfCBQcm9wb3NhbCB8CnwtLS18LS0tfAp8IFdvcmtpbmcgbmFtZSB8ICoqUmh5VmlkeWEqKiDigJQgbG9ja2VkIE9jdCAxMSwgMjAyNiB8CnwgVGFnbGluZSB8ICpMZWFybiBmcm9tIGhvbWUuIFRhdWdodCB3aXRoIGhlYXJ0LiogfAp8IFBvc2l0aW9uaW5nIHwgTm90IGEgY291cnNlIG1hcmtldHBsYWNlIOKAlCBsaXZlLCBodW1hbiB0ZWFjaGluZyBieSB2ZXJpZmllZCBJbmRpYW4gdGVhY2hlcnMgZm9yIHN0dWRlbnRzIGFueXdoZXJlIGluIHRoZSB3b3JsZCwgcGx1cyBhIHZpZGVvIGxpYnJhcnkuIHwKfCBSZWZlcmVuY2UgbW9kZWxzIHwgUHJlcGx5IC8gU3VwZXJwcm9mICgxOjEgYm9va2luZykgKyBZb3VUdWJlLXN0eWxlIHZpZGVvIGxpYnJhcnkgKyBXaGF0c0FwcC1saWtlIHN0dWRlbnQtdGVhY2hlciBtZXNzYWdpbmcuIHwKCiMjIDIuIFZpc2lvbiAmIG1hcmtldAoKLSAqKlZpc2lvbjoqKiBBbnkgc3R1ZGVudCBpbiB0aGUgd29ybGQgY2FuIGxlYXJuIGFueSBzdWJqZWN0IGxpdmUgZnJvbSBhIHRlYWNoZXIgaW4gSW5kaWEg4oCUIGFmZm9yZGFibGUsIHBlcnNvbmFsLCBhbmQgaW50ZXJhY3RpdmUuCi0gKipQaGFzZSAxOioqICoqSGluZGkuKiogU2luZ2xlIHRlYWNoZXIgKFNhcmFzd2F0aGksIEluZGlhKSDihpIgc3R1ZGVudHMgd29ybGR3aWRlLgotICoqUGhhc2UgMjoqKiBPdGhlciBzdWJqZWN0cy9sYW5ndWFnZXMgKGUuZy4gVGFtaWwpICsgKipuZXcgdGVhY2hlciBoaXJpbmcqKiDigJQgUmh5dGVjaCBoaXJlcyBtdWx0aXBsZSB0ZWFjaGVycyBvbnRvIHRoZSBwbGF0Zm9ybS4KLSAqKlVuZmFpciBhZHZhbnRhZ2U6KiogU3RhcnRzIHdpdGggYSByZWFsIHRlYWNoZXIgcmVhZHkgdG8gdGVhY2ggbm93IOKAlCB0aGUgcHJvZHVjdCBpcyB0aGUgYm9va2luZyBmbG93LCB2aWRlbyBsaWJyYXJ5LCBhbmQgY2xhc3Nyb29tIGV4cGVyaWVuY2UgYXJvdW5kIHRoZW0uCgojIyAzLiBSb2xlcwoKfCBSb2xlIHwgRGVzY3JpcHRpb24gfAp8LS0tfC0tLXwKfCBUZWFjaGVyIChhZG1pbikgfCBVcGxvYWRzIHZpZGVvcywgcnVucyBsaXZlIGNsYXNzZXMsIG1hbmFnZXMgY2FsZW5kYXIvYXBwb2ludG1lbnRzLCB0ZWFjaGVzIHdpdGggYm9hcmQsIGludGVyYWN0cyB3aXRoIHN0dWRlbnRzIHwKfCBTdHVkZW50IHwgUmVnaXN0ZXJzLCBkZWNsYXJlcyBIaW5kaSBsZXZlbCwgYm9va3MgYXBwb2ludG1lbnRzLCB3YXRjaGVzIHZpZGVvcywgbWVzc2FnZXMvY2FsbHMvZW1haWxzIHRlYWNoZXIgfAoKUGhhc2UgMSBhc3N1bWVzIGEgKipzaW5nbGUgdGVhY2hlcioqLiBNdWx0aS10ZWFjaGVyIHN1cHBvcnQgaXMgYSBQaGFzZSAyIGl0ZW0uCgojIyA0LiBUZWFjaGVyIGZlYXR1cmVzIChhZG1pbikKCiMjIyA0LjEgVmlkZW8gbGlicmFyeQotIFVwbG9hZCBwcmUtcmVjb3JkZWQgdGVhY2hpbmcgdmlkZW9zIChzdWJqZWN0L3RvcGljL2xldmVsIHRhZ2dlZCkuCi0gT3JnYW5pemUgaW50byBwbGF5bGlzdHMgYnkgSGluZGkgc3RhZ2UgKHNlZSA2LjIpLgotIFBoYXNlIDE6ICoqdmlkZW9zIGFyZSBmcmVlIHRvIHdhdGNoKiogKGdyb3d0aCBzdHJhdGVneSkuCgojIyMgNC4yIExpdmUgY2xhc3NlcwotIFRlYWNoZXIgY3JlYXRlcyBhIGxpdmUgY2xhc3M6IHN1YmplY3QsIHRvcGljLCBkYXRlL3RpbWUsIGR1cmF0aW9uLCBtYXggc3R1ZGVudHMuCi0gKipUZWFjaGluZyBhcHA6IEdvb2dsZSBNZWV0IChjb25maXJtZWQgZm9yIFBoYXNlIDEpLioqIFllcywgTWVldCB3b3JrcyDigJQgZnJlZSwgbm8gaW5zdGFsbHMgZm9yIHN0dWRlbnRzLCBzY3JlZW4gc2hhcmUgZm9yIHRoZSBib2FyZCwgbGFyZ2VyIGNsYXNzIHNpemVzIHRoYW4gV2hhdHNBcHAgdmlkZW8uCi0gKipXaGF0c0FwcCBjb250aW51ZXMqKiBmb3Igd2hhdCBpdCdzIHVzZWQgZm9yIHRvZGF5OiBtZXNzYWdpbmcsIGNvb3JkaW5hdGlvbiwgcmVtaW5kZXJzLCBxdWljayBkb3VidHMuIENsYXNzZXMgbW92ZSB0byBNZWV0OyBjaGF0IHN0YXlzIG9uIFdoYXRzQXBwLgotIFN0dWRlbnRzIGpvaW4gZnJvbSB0aGUgY2xhc3MgcGFnZTsgYXR0ZW5kYW5jZSByZWNvcmRlZC4KCiMjIyA0LjMgQm9hcmQgdGVhY2hpbmcKLSBUZWFjaGVyIHNoYXJlcyBhIGJvYXJkIGR1cmluZyBsaXZlIGNsYXNzOiBwaHlzaWNhbCB3aGl0ZWJvYXJkIG9uIGNhbWVyYSwgb3IgZGlnaXRhbCB3aGl0ZWJvYXJkIC8gc2NyZWVuIHNoYXJlLgotIFBoYXNlIDE6IHNjcmVlbiBzaGFyZSB2aWEgTWVldCBpcyBlbm91Z2g7IGRlZGljYXRlZCBpbi1hcHAgd2hpdGVib2FyZCBpcyBQaGFzZSAyLgoKIyMjIDQuNCBDYWxlbmRhciAmIGFwcG9pbnRtZW50cwotIFRlYWNoZXIgc2VlcyBhbGwgdXBjb21pbmcgMToxIGFwcG9pbnRtZW50cyBhbmQgbGl2ZSBjbGFzc2VzIG9uIGEgY2FsZW5kYXIuCi0gVGVhY2hlciBjYW4gY3JlYXRlLCByZXNjaGVkdWxlLCBvciBjYW5jZWwgc2xvdHM7IHN0dWRlbnRzIGFyZSBub3RpZmllZCBhdXRvbWF0aWNhbGx5LgoKIyMjIDQuNSBJbi1jbGFzcyBpbnRlcmFjdGlvbgotIExpdmUgY2hhdCBkdXJpbmcgY2xhc3MsIGhhbmQtcmFpc2UgLyBRJkEsIHBvbGxzIGZvciBxdWljayBjaGVja3MuCgojIyA1LiBTdHVkZW50IGZlYXR1cmVzCgojIyMgNS4xIFJlZ2lzdHJhdGlvbiAmIEhpbmRpIGxldmVsCi0gU3R1ZGVudCByZWdpc3RlcnMgd2l0aDogbmFtZSwgZW1haWwsIHBob25lLCBjb3VudHJ5L3RpbWV6b25lLCBhZ2UgZ3JvdXAuCi0gKipIaW5kaSBzdGFnZSBhc3Nlc3NtZW50IGF0IGVucm9sbG1lbnQqKiDigJQgc3R1ZGVudCBkZWNsYXJlcyAob3IgaXMgdGVzdGVkIG9uKToKICAtIFN0YWdlOiAqKkJlZ2lubmVyIC8gSW50ZXJtZWRpYXRlIC8gQWR2YW5jZWQqKgogIC0gU2tpbGxzIHBlciBzdGFnZTogc3BlYWtpbmcsIHJlYWRpbmcgKERldmFuYWdhcmkpLCB3cml0aW5nCi0gVGVhY2hlciB1c2VzIHRoaXMgdG8gcmVjb21tZW5kIHZpZGVvcyBhbmQgcGxhY2Ugc3R1ZGVudHMgaW4gdGhlIHJpZ2h0IGxpdmUgYmF0Y2hlcy4KCiMjIyA1LjIgQm9vayBhcHBvaW50bWVudAotIFN0dWRlbnQgYnJvd3NlcyB0ZWFjaGVyJ3MgYXZhaWxhYmxlIHNsb3RzIChzaG93biBpbiBzdHVkZW50J3MgbG9jYWwgdGltZXpvbmUpLgotIEJvb2tzIGEgMToxIGFwcG9pbnRtZW50OyByZWNlaXZlcyBjb25maXJtYXRpb24gKyBNZWV0IGxpbmsgKyByZW1pbmRlcnMuCgojIyMgNS4zIFZpZGVvIGxpYnJhcnkKLSBCcm93c2Uvc2VhcmNoIHVwbG9hZGVkIHZpZGVvcyBieSBzdWJqZWN0LCB0b3BpYywgSGluZGkgc3RhZ2UuCi0gKipGcmVlIGluIFBoYXNlIDEqKiDigJQgbm8gcGF5d2FsbCBvbiB2aWRlb3MuCgojIyMgNS40IE1lc3NhZ2luZyAmIGNvbnRhY3QKLSAqKkluLWFwcCBjaGF0Ym90IC8gbWVzc2FnaW5nOioqIHN0dWRlbnQgc2VuZHMgbWVzc2FnZXMgdG8gdGhlIHRlYWNoZXI7IHNpbXBsZSBhdXRvLXJlcGxpZXMgZm9yIEZBUXMgKHRpbWluZ3MsIGZlZXMsIHN5bGxhYnVzKS4KLSAqKkVtYWlsIHRoZSB0ZWFjaGVyKiogZnJvbSB0aGUgcGxhdGZvcm0uCi0gKipDYWxsIHRoZSB0ZWFjaGVyKiog4oCUIHNjaGVkdWxlZCBjYWxsIHNsb3RzIChub3Qgb3BlbiBjb2xkLWNhbGxpbmcpOyBwcm90ZWN0cyB0ZWFjaGVyJ3MgcGVyc29uYWwgbnVtYmVyIHZpYSBtYXNrZWQgY2FsbGluZyBvciBzY2hlZHVsZWQgTWVldCBhdWRpby4KCiMjIDYuIFN0dWRlbnQgaW5mbyAoZGF0YSBjYXB0dXJlZCkKCi0gSWRlbnRpdHk6IG5hbWUsIGVtYWlsLCBwaG9uZSwgY291bnRyeSwgdGltZXpvbmUsIGFnZSBncm91cAotIExlYXJuaW5nIHByb2ZpbGU6IEhpbmRpIHN0YWdlIChCZWdpbm5lci9JbnRlcm1lZGlhdGUvQWR2YW5jZWQpLCBza2lsbCBicmVha2Rvd24gKHNwZWFraW5nL3JlYWRpbmcvd3JpdGluZyksIGxlYXJuaW5nIGdvYWwgKHNjaG9vbCwgdHJhdmVsLCBoZXJpdGFnZSwgZXhhbSkKLSBBY3Rpdml0eTogdmlkZW9zIHdhdGNoZWQsIGNsYXNzZXMgYXR0ZW5kZWQsIGFwcG9pbnRtZW50cyBoaXN0b3J5CgojIyA3LiBQcmljaW5nIChsb2NrZWQgT2N0IDExLCAyMDI2KQoKLSAqKkxhdW5jaCBvZmZlcjogZmlyc3QgbW9udGggRlJFRSoqIHdoZW4gdGhlIHByb2R1Y3QgbGF1bmNoZXMuCi0gKipBZnRlciB0aGUgZnJlZSBtb250aDoqKiAxLW1vbnRoIGRlcG9zaXQgKyBtb250aGx5IGZlZS4KLSAqKlBsYW5zOioqIE1vbnRobHksIFF1YXJ0ZXJseSwgSGFsZi15ZWFybHksIFllYXJseS4KLSAqKkRpc2NvdW50czoqKiBsb25nZXIgY29tbWl0bWVudCA9IGJpZ2dlciBkaXNjb3VudCAoWWVhcmx5ID4gSGFsZi15ZWFybHkgPiBRdWFydGVybHkgPiBNb250aGx5KS4KLSAqKlZpZGVvczogZnJlZSoqIGluIFBoYXNlIDEgKGdyb3d0aCkuCi0gTm8gaGlkZGVuIGNoYXJnZXMg4oCUIGV2ZXIuCgojIyA3QS4gRGVzaWduIHByaW5jaXBsZQoKLSAqKlRoZSBwcm9kdWN0IG11c3QgYmUgdXNlci1mcmllbmRseS4qKiBTaW1wbGUgZW5vdWdoIGZvciBwYXJlbnRzIGFuZCBraWRzLCB3b3JrcyBvbiBiYXNpYyBwaG9uZXMsIGJpZyBidXR0b25zLCBtaW5pbWFsIHN0ZXBzIHRvIGJvb2sgYW5kIGpvaW4gYSBjbGFzcy4KCiMjIDguIFBoYXNlIHBsYW4KCnwgUGhhc2UgfCBTY29wZSB8CnwtLS18LS0tfAp8IDEgfCBIaW5kaSBvbmx5LCBzaW5nbGUgdGVhY2hlciAoSW5kaWEpLCBzdHVkZW50cyB3b3JsZHdpZGUuIFZpZGVvIGxpYnJhcnkgKGZyZWUpLCBsaXZlIGNsYXNzZXMgdmlhIEdvb2dsZSBNZWV0LCBhcHBvaW50bWVudCBib29raW5nLCBjYWxlbmRhciBtYW5hZ2VtZW50LCBzdHVkZW50IHJlZ2lzdHJhdGlvbiB3aXRoIEhpbmRpLXN0YWdlIHByb2ZpbGluZywgbWVzc2FnaW5nL2VtYWlsL3NjaGVkdWxlZCBjYWxscyB8CnwgMiB8IE1vcmUgc3ViamVjdHMsIG11bHRpcGxlIHRlYWNoZXJzLCBpbi1hcHAgdmlkZW8gKEppdHNpIGVtYmVkKSwgZGVkaWNhdGVkIHdoaXRlYm9hcmQsIHBhaWQgdGllcnMsIG1vYmlsZSBhcHAgfAoKIyMgOS4gU3VjY2VzcyBtZXRyaWNzIChQaGFzZSAxKQoKLSAxMDAgcmVnaXN0ZXJlZCBzdHVkZW50cyBpbiBmaXJzdCAzIG1vbnRocwotIDQwJSsgb2YgcmVnaXN0ZXJlZCBzdHVkZW50cyBhdHRlbmQgYXQgbGVhc3Qgb25lIGxpdmUgY2xhc3MKLSBBdmVyYWdlIGNsYXNzIHJhdGluZyDiiaUgNC41LzUKLSBWaWRlbyBsaWJyYXJ5OiAzMCsgSGluZGkgdmlkZW9zIHB1Ymxpc2hlZCAoYWxsIDMgc3RhZ2VzIGNvdmVyZWQpCgojIyAxMC4gT3BlbiBxdWVzdGlvbnMKCjEuIH5+UHJvZHVjdCBuYW1lfn4g4oCUIGRlY2lkZWQ6ICoqUmh5VmlkeWEqKiAoT2N0IDExLCAyMDI2KS4KMi4gfn5QaGFzZSAxIGxhbmd1YWdlfn4g4oCUIGRlY2lkZWQ6ICoqSGluZGkqKiBpbiBQaGFzZSAxOyBvdGhlciBzdWJqZWN0cyArIG5ldyB0ZWFjaGVyIGhpcmluZyBpbiBQaGFzZSAyIChPY3QgMTEsIDIwMjYpLgoyLiBMaXZlIGNsYXNzIC8gYXBwb2ludG1lbnQgcHJpY2luZyDigJQgcGVyLXNlc3Npb24gZmVlPyBQYWNrYWdlcz8KMy4gQ2hhdGJvdCBzY29wZSDigJQgc2ltcGxlIEZBUSBhdXRvLXJlcGxpZXMsIG9yIEFJIHR1dG9yIGZvciBIaW5kaSBwcmFjdGljZT8KNC4gVGVhY2hlciBvbmJvYXJkaW5nIOKAlCBpcyBQaGFzZSAxIGxpdGVyYWxseSBvbmUgbmFtZWQgdGVhY2hlcj8gV2hvPwo1LiBTdHVkZW50IGFnZSByYW5nZSDigJQga2lkcywgYWR1bHRzLCBvciBib3RoPyAoYWZmZWN0cyBzYWZlZ3VhcmRpbmcgbmVlZHMpCg==" download>Download the updated requirements document</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="wrap faq-grid">
+        <div><h2>Good to know.</h2></div>
+        <div class="faq-list">
+          <details><summary>Who can learn with RhyVidya?</summary><p>Phase 1 is designed for Hindi learners worldwide. The final supported age range will be confirmed before registration opens.</p></details>
+          <details><summary>Will RhyVidya be easy to use?</summary><p>Yes. The product is planned around a straightforward path: register, find the right Hindi stage, book a time, and join class in one tap. Large controls, plain language, mobile-friendly pages, and local-time appointments keep the experience clear.</p></details>
+          <details><summary>Does Google Meet work for teaching?</summary><p>Yes. Google Meet is the Phase 1 classroom because it supports live video, student interaction, screen sharing, chat, and board teaching. WhatsApp will continue for reminders, quick questions, and backup communication.</p></details>
+          <details><summary>What is included in the launch offer?</summary><p>The first month is free when RhyVidya launches. If a student continues afterward, the paid plan begins with one month’s fee as a deposit plus the selected subscription payment.</p></details>
+          <details><summary>Which payment plans will be available?</summary><p>Families can choose monthly, quarterly, half-yearly, or yearly billing. Longer subscriptions will receive larger discounts; exact tuition and discount percentages will be published before enrollment opens.</p></details>
+          <details><summary>Will more subjects be added?</summary><p>Yes. Phase 2 is planned to expand into more subjects and languages with newly hired teachers.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap closing-card">
+        <div><h2>Your first month can begin freely.</h2><p>Start with the stage finder, then experience RhyVidya’s simple live-learning flow when enrollment opens.</p></div>
+        <a class="button" href="#stage-finder">Find my stage</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid"><span>RhyVidya · Learn from home. Taught with heart.</span><span>Phase 1 preview · Hindi with Saraswathi</span></div>
+  </footer>
+
+  <script>
+    (function () {
+      var menuButton = document.getElementById('menuButton');
+      var navLinks = document.getElementById('navLinks');
+      menuButton.addEventListener('click', function () {
+        var open = navLinks.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('menu-open', open);
+      });
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navLinks.classList.remove('open');
+          menuButton.setAttribute('aria-expanded', 'false');
+          menuButton.setAttribute('aria-label', 'Open menu');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      var finder = document.getElementById('finderPanel');
+      var speakingScore = 0;
+      function renderQuestionTwo() {
+        finder.innerHTML = '<div class="question-count">Question 2 of 2</div>' +
+          '<h3>How comfortable are you reading Devanagari?</h3>' +
+          '<div class="answer-list">' +
+          '<button class="answer" data-reading="0">I don\'t read it yet</button>' +
+          '<button class="answer" data-reading="1">I can sound out words and short lines</button>' +
+          '<button class="answer" data-reading="2">I can read paragraphs with confidence</button>' +
+          '</div>';
+        finder.querySelectorAll('[data-reading]').forEach(function (button) {
+          button.addEventListener('click', function () { renderResult(Number(button.dataset.reading)); });
+        });
+      }
+      function renderResult(readingScore) {
+        var score = speakingScore + readingScore;
+        var level = score <= 1 ? 'Beginner' : score <= 3 ? 'Intermediate' : 'Advanced';
+        var copy = level === 'Beginner' ? 'Start with practical speech and the building blocks of Devanagari.' :
+          level === 'Intermediate' ? 'Strengthen conversation, reading fluency, and grammar in context.' :
+          'Refine expression, accuracy, and cultural nuance through deeper material.';
+        finder.innerHTML = '<div class="result-badge">Suggested starting stage</div>' +
+          '<h3>' + level + '</h3><p class="result-copy">' + copy + '</p>' +
+          '<div class="result-skills"><span>Speaking</span><span>Reading</span><span>Writing</span></div>' +
+          '<button class="restart" id="restartFinder">Retake the questions</button>';
+        document.getElementById('restartFinder').addEventListener('click', resetFinder);
+      }
+      function resetFinder() {
+        finder.innerHTML = '<div class="question-count">Question 1 of 2</div>' +
+          '<h3>How comfortable are you speaking Hindi?</h3>' +
+          '<div class="answer-list">' +
+          '<button class="answer" data-speaking="0">I’m starting with my first words</button>' +
+          '<button class="answer" data-speaking="1">I can manage simple conversations</button>' +
+          '<button class="answer" data-speaking="2">I can discuss most everyday topics</button>' +
+          '</div>';
+        bindSpeaking();
+      }
+      function bindSpeaking() {
+        finder.querySelectorAll('[data-speaking]').forEach(function (button) {
+          button.addEventListener('click', function () {
+            speakingScore = Number(button.dataset.speaking);
+            renderQuestionTwo();
+          });
+        });
+      }
+      bindSpeaking();
+    }());
+  </script>
+</body>
+</html>
