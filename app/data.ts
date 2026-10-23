@@ -9,7 +9,6 @@ export const SITE = {
     "https://wa.me/14378707083?text=Hello%20RhyVidya%2C%20I%27d%20like%20to%20enquire%20about%20classes.",
   whatsappPlain: "https://wa.me/14378707083",
   youtube: "https://youtube.com/@rhytechglobalsolutionsinc",
-  youtubeEmbed: "https://www.youtube-nocookie.com/embed/-fUVZxERwPA?rel=0",
   launchFilm: {
     embed: "https://www.youtube-nocookie.com/embed/IKSEqG4nMA8?rel=0",
     watch: "https://www.youtube.com/shorts/IKSEqG4nMA8",

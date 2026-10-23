@@ -91,18 +91,13 @@ section { padding: 96px 0; }
 
 /* Hero */
 .hero { padding: 74px 0 62px; }
-.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 70px; }
-.hero-copy > p { max-width: 620px; color: var(--muted); font-size: 18px; margin-bottom: 30px; }
+.hero-grid { display: grid; grid-template-columns: 1fr; justify-items: center; }
+.hero-copy { max-width: 780px; text-align: center; }
+.hero-copy > p { max-width: 620px; color: var(--muted); font-size: 18px; margin: 0 auto 30px; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-art { position: relative; min-height: 500px; display: grid; place-items: center; }
-.logo-stage { width: min(100%, 520px); background: #111421; border: 1px solid rgba(190, 131, 244, 0.34); border-radius: 40px 40px 40px 12px; box-shadow: 0 24px 70px rgba(34, 18, 59, 0.28); padding: 18px; overflow: hidden; }
-.logo-stage .yt-embed { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 24px; border: 0; display: block; }
+.hero .hero-actions { justify-content: center; }
 .hero-yt { font-size: 15px; margin: 18px 0 0; color: var(--muted); }
 .hero-yt a, .launch-note a, .faq-list details p a { color: var(--purple); font-weight: 600; }
-.floating-note { position: absolute; right: -8px; bottom: 22px; width: 230px; background: var(--purple-dark); color: var(--bg); padding: 18px 19px; border-radius: 18px 18px 4px 18px; box-shadow: var(--shadow); transform: rotate(-3deg); }
-@media (prefers-color-scheme: dark) { .floating-note { background: #ead6f6; color: #24152d; } }
-.floating-note b { display: block; font-family: var(--font-hindi), sans-serif; font-size: 23px; margin-bottom: 4px; }
-.floating-note span { font-size: 13px; opacity: 0.78; }
 
 /* Trust strip */
 .trust-strip { border-block: 1px solid var(--line); background: var(--paper); }
@@ -350,7 +345,6 @@ footer { border-top: 1px solid var(--line); background: var(--paper); padding: 4
   .step:last-child { border-bottom: 0; }
   .trust-grid { grid-template-columns: 1fr 1fr; }
   .format-grid { grid-template-columns: 1fr 1fr; }
-  .hero-art { min-height: 340px; }
   .closing-card { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 720px) {
@@ -372,7 +366,6 @@ footer { border-top: 1px solid var(--line); background: var(--paper); padding: 4
   .plans { grid-template-columns: 1fr; }
   .closing-card { padding: 34px 24px; }
   .channel-row { justify-content: flex-start; }
-  .floating-note { width: 190px; right: 0; bottom: 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

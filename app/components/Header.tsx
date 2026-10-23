@@ -25,7 +25,7 @@ export default function Header() {
           <img src={SITE.logoHeader} width={48} height={48} alt={SITE.logoAlt} />
           <span className="brand-text">
             <strong>RhyVidya</strong>
-            <small>LEARN LIVE · MANY SUBJECTS</small>
+            <small>LEARN • CREATE • EMPOWER</small>
           </span>
         </Link>
         <button
