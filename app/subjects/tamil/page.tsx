@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BookingForm from "../../components/BookingForm";
 import JsonLd from "../../components/JsonLd";
-import { SITE } from "../../data";
+import { OG_IMAGE, SITE } from "../../data";
 
 export const metadata: Metadata = {
   title: "Learn Tamil Online — Coming Soon, with Saraswathi",
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     description:
       "Tamil is coming next to RhyVidya — live online classes with Saraswathi. Register your interest today.",
     url: "/subjects/tamil",
+    type: "website",
+    images: [OG_IMAGE],
   },
 };
 

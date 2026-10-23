@@ -28,6 +28,14 @@ export const SITE = {
   ],
 };
 
+export const OG_IMAGE = {
+  url: SITE.logo,
+  width: 1600,
+  height: 1600,
+  alt: SITE.logoAlt,
+  type: "image/webp",
+};
+
 export type Subject = {
   slug: string;
   name: string;
