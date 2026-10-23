@@ -39,8 +39,8 @@ export default function BookingForm({
   const [viewDate, setViewDate] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
   const [selected, setSelected] = useState<Date | null>(null);
   const [calError, setCalError] = useState(false);
-  const [confirm, setConfirm] = useState<null | { mailto: string; text: string }>(null);
-  const [copyStatus, setCopyStatus] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [sentTo, setSentTo] = useState("");
 
   const needsDate = mode === "book";
   const year = viewDate.getFullYear();
@@ -50,50 +50,59 @@ export default function BookingForm({
   const minView = new Date(today.getFullYear(), today.getMonth(), 1);
   const maxView = new Date(today.getFullYear(), today.getMonth() + 2, 1);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (status === "sending") return;
     if (needsDate && !selected) {
       setCalError(true);
       document.getElementById("calGrid")?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
-    const data = new FormData(e.currentTarget);
-    const subjectLabel =
-      fixedSubject ?? String(data.get("subject") ?? "Hindi — live now");
-    const lines = [
-      mode === "book" ? "New RhyVidya booking request" : "New RhyVidya enquiry",
-      "",
-      `Name: ${data.get("name") ?? ""}`,
-      `Email: ${data.get("email") ?? ""}`,
-    ];
-    if (data.get("phone")) lines.push(`Phone: ${data.get("phone")}`);
-    lines.push(`Subject: ${subjectLabel}`);
-    if (showStage) lines.push(`Learning stage: ${data.get("stage") ?? "Not sure yet"}`);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload: Record<string, string> = {
+      mode,
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      subject: fixedSubject ?? String(data.get("subject") ?? "Not sure yet"),
+      message: String(data.get("message") ?? ""),
+      // Honeypot — real visitors never see or fill this field.
+      website: String(data.get("website") ?? ""),
+    };
+    if (showStage) payload.stage = String(data.get("stage") ?? "Not sure yet");
     if (mode === "book") {
-      lines.push(`Class format: ${data.get("format") ?? "1-to-1 class"}`);
-      if (selected) lines.push(`Appointment date: ${formatLong(selected)}`);
-      lines.push(`Preferred time: ${data.get("slot") ?? ""}`);
+      payload.format = String(data.get("format") ?? "1-to-1 class");
+      payload.slot = String(data.get("slot") ?? "");
+      if (selected) payload.date = formatLong(selected);
     }
-    if (data.get("message")) lines.push("", "Notes:", String(data.get("message")));
-    const text = lines.join("\n");
-    const mailto = `mailto:${SITE.email}?subject=${encodeURIComponent(
-      `RhyVidya ${mode === "book" ? "booking" : "enquiry"} — ${data.get("name") ?? ""}`
-    )}&body=${encodeURIComponent(text)}`;
-    setConfirm({ mailto, text });
-    setCopyStatus("");
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+      if (res.ok && result?.ok) {
+        setSentTo(payload.email);
+        setStatus("sent");
+        form.reset();
+        setSelected(null);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
     setTimeout(() => {
       document.getElementById("formConfirm")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }, 50);
   }
 
-  async function copyDetails() {
-    if (!confirm) return;
-    try {
-      await navigator.clipboard.writeText(confirm.text);
-      setCopyStatus("Copied — paste it into any message or email.");
-    } catch {
-      setCopyStatus("Copy was blocked by the browser — use “Send by email” instead.");
-    }
+  function sendAnother() {
+    setStatus("idle");
+    setSentTo("");
   }
 
   return (
@@ -105,6 +114,15 @@ export default function BookingForm({
             ? "Your first month is free. Fields marked optional can be left blank — we will confirm the details by email."
             : "Tell us you are interested and we will email you first when enrolment opens. Fields marked optional can be left blank.")}
       </p>
+
+      {/* Honeypot: hidden from people, filled by bots. The server drops
+          any submission where this has a value. */}
+      <div className="hp-field" aria-hidden="true">
+        <label>
+          Website
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
 
       <div className="form-row">
         <div className="field">
@@ -269,26 +287,40 @@ export default function BookingForm({
         />
       </div>
 
-      <button className="button primary" type="submit">
-        {mode === "book" ? "Submit booking request" : "Register my interest"}
+      <button className="button primary" type="submit" disabled={status === "sending"}>
+        {status === "sending"
+          ? "Sending…"
+          : mode === "book"
+            ? "Submit booking request"
+            : "Register my interest"}
       </button>
 
-      {confirm && (
-        <div className="form-confirm" id="formConfirm">
-          <b>Your {mode === "book" ? "request" : "enquiry"} is ready to send.</b>
+      {status === "sent" && (
+        <div className="form-confirm" id="formConfirm" role="status">
+          <b>Thank you — your {mode === "book" ? "booking request" : "enquiry"} has been sent.</b>
           <p>
-            Tap “Send by email” to deliver it to {SITE.email} from your own mail app, or copy
-            the details and reach us any way you like.
+            It is on its way to the RhyVidya team, and we will reply to {sentTo || "your email"}{" "}
+            to confirm the details. No need to send it again.
           </p>
-          <a className="button primary" href={confirm.mailto}>
-            Send by email
-          </a>
-          <button className="button secondary" type="button" onClick={copyDetails}>
-            Copy request details
+          <button className="button secondary" type="button" onClick={sendAnother}>
+            Send another {mode === "book" ? "request" : "enquiry"}
           </button>
-          <span className="copy-status" role="status">
-            {copyStatus}
-          </span>
+        </div>
+      )}
+
+      {status === "error" && (
+        <div className="form-confirm" id="formConfirm" role="alert">
+          <b className="form-error-title">
+            Sorry — your {mode === "book" ? "request" : "enquiry"} didn’t go through.
+          </b>
+          <p>
+            Please try submitting again in a moment. If it keeps failing, reach us on WhatsApp
+            or email us directly at{" "}
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a> and we will take it from there.
+          </p>
+          <a className="button secondary" href={SITE.whatsapp} target="_blank" rel="noreferrer">
+            Chat on WhatsApp
+          </a>
         </div>
       )}
     </form>
