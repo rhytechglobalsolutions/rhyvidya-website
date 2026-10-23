@@ -22,7 +22,7 @@ export default function Footer() {
             <a className="channel-chip" href={SITE.phoneHref}>
               {SITE.phoneDisplay}
             </a>
-            <a className="channel-chip" href={SITE.whatsappPlain} target="_blank" rel="noopener">
+            <a className="channel-chip" href={SITE.whatsapp} target="_blank" rel="noopener">
               WhatsApp
             </a>
           </div>

@@ -145,6 +145,9 @@ export default function PhysicsPage() {
               </p>
             </article>
           </div>
+          <p className="teachers-link">
+            <Link href="/teachers">Meet all of RhyVidya's teachers →</Link>
+          </p>
         </div>
       </section>
 
@@ -174,8 +177,8 @@ export default function PhysicsPage() {
               Prefer to chat first? You can also reach us on WhatsApp — the enquiry form is
               still the fastest way to hold your place.
             </p>
-            <a className="button whatsapp" href={SITE.whatsapp} target="_blank" rel="noopener">
-              Chat on WhatsApp
+            <a className="wa-text-link" href={SITE.whatsapp} target="_blank" rel="noopener">
+              Chat on WhatsApp →
             </a>
           </div>
           <BookingForm mode="enquire" fixedSubject="Physics — coming soon" />

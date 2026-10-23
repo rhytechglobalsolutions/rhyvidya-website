@@ -134,6 +134,12 @@ section { padding: 96px 0; }
 .card-cta:hover { text-decoration: underline; }
 .subject-note { color: var(--muted); margin: 26px 0 0; max-width: 780px; }
 .subject-note b { color: var(--ink); }
+.teachers-link { text-align: center; margin: 38px 0 0; font-weight: 700; font-size: 15px; }
+.teachers-link a { color: var(--purple); text-decoration: none; }
+.teachers-link a:hover { text-decoration: underline; }
+.wa-text-link { display: inline-block; margin-top: 14px; color: var(--purple); font-weight: 700; font-size: 14.5px; text-decoration: none; }
+.wa-text-link:hover { text-decoration: underline; }
+.film-note { text-align: center; color: var(--muted); font-size: 13.5px; margin: 16px 0 0; }
 
 /* Steps */
 .route { background: var(--paper); }
