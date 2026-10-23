@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BookingForm from "./components/BookingForm";
 import JsonLd from "./components/JsonLd";
-import { FAQS, PLANS, SITE, SUBJECTS } from "./data";
+import { FAQS, PLANS, OG_IMAGE, SITE, SUBJECTS } from "./data";
 
 export const metadata: Metadata = {
   title: "RhyVidya — Learn Live with Expert Teachers",
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     description:
       "Learn live online with experienced teachers across many subjects — starting with Hindi by Saraswathi; Tamil, Physics, and Mathematics coming next. First month free.",
     url: "/",
+    type: "website",
+    images: [OG_IMAGE],
   },
 };
 

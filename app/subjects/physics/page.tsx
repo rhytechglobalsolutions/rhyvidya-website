@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BookingForm from "../../components/BookingForm";
 import JsonLd from "../../components/JsonLd";
-import { SITE } from "../../data";
+import { OG_IMAGE, SITE } from "../../data";
 
 export const metadata: Metadata = {
   title: "Physics Classes Online — Coming Soon",
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     description:
       "Physics is coming to RhyVidya — live online classes with Mr Athi Siva Krishnan and Mrs Mallika. Register your interest today.",
     url: "/subjects/physics",
+    type: "website",
+    images: [OG_IMAGE],
   },
 };
 

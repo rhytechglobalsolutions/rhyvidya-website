@@ -3,7 +3,7 @@ import Link from "next/link";
 import BookingForm from "../../components/BookingForm";
 import JsonLd from "../../components/JsonLd";
 import StageFinder from "../../components/StageFinder";
-import { HINDI_LADDER, HINDI_STAGES, SITE } from "../../data";
+import { HINDI_LADDER, HINDI_STAGES, OG_IMAGE, SITE } from "../../data";
 
 export const metadata: Metadata = {
   title: "Learn Hindi Online — Live Classes with Saraswathi",
@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     description:
       "Live online Hindi classes with Saraswathi, a teacher of 25+ years — from Parichaya to Praveen. First month free.",
     url: "/subjects/hindi",
+    type: "website",
+    images: [OG_IMAGE],
   },
 };
 
