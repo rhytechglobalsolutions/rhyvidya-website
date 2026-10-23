@@ -118,23 +118,6 @@ export default function HomePage() {
               .
             </p>
           </div>
-          <div className="hero-art" aria-label="RhyVidya video and Hindi greeting">
-            <div className="logo-stage">
-              <iframe
-                className="yt-embed"
-                src={SITE.youtubeEmbed}
-                title="RhyVidya — watch on the Rhytech Global Solutions YouTube channel"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
-            <div className="floating-note">
-              <b lang="hi">नमस्ते!</b>
-              <span>Your first confident word starts here.</span>
-            </div>
-          </div>
         </div>
       </section>
 
