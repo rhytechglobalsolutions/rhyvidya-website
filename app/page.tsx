@@ -157,6 +157,46 @@ export default function HomePage() {
         </div>
       </div>
 
+      <section className="film" id="launch-film">
+        <div className="wrap film-grid">
+          <div className="film-copy">
+            <p className="eyebrow">
+              The launch film <span>· RhyVidya is live</span>
+            </p>
+            <h2>Watch the launch film.</h2>
+            <p>
+              See the RhyVidya logo come to life — Knowledge is Power. RhyVidya is an online
+              learning platform where experienced teachers teach students live across many
+              subjects, starting with Hindi and growing from there.
+            </p>
+            <div className="hero-actions">
+              <a className="button primary" href="#bookingForm">
+                Book your free first month
+              </a>
+              <a
+                className="button secondary"
+                href={SITE.launchFilm.watch}
+                target="_blank"
+                rel="noopener"
+              >
+                Watch on YouTube
+              </a>
+            </div>
+          </div>
+          <div className="film-frame">
+            <iframe
+              className="yt-short"
+              src={SITE.launchFilm.embed}
+              title={`RhyVidya launch film — ${SITE.launchFilm.title}`}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="subjects" id="subjects">
         <div className="wrap">
           <div className="section-head">

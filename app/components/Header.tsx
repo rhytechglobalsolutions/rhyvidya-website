@@ -22,7 +22,7 @@ export default function Header() {
       <nav className="wrap main-nav" aria-label="Primary navigation">
         <Link className="brand" href="/" aria-label="RhyVidya — home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={SITE.logo} width={48} height={48} alt={SITE.logoAlt} />
+          <img src={SITE.logoHeader} width={48} height={48} alt={SITE.logoAlt} />
           <span className="brand-text">
             <strong>RhyVidya</strong>
             <small>LEARN LIVE · MANY SUBJECTS</small>

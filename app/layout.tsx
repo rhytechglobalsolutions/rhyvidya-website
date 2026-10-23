@@ -34,8 +34,12 @@ export const metadata: Metadata = {
   description:
     "Learn live online with experienced teachers across many subjects — starting with Hindi by Saraswathi; Tamil, Physics, and Mathematics coming next. First month free.",
   icons: {
-    icon: SITE.logo,
-    apple: SITE.logo,
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",

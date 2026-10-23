@@ -10,7 +10,13 @@ export const SITE = {
   whatsappPlain: "https://wa.me/14378707083",
   youtube: "https://youtube.com/@rhytechglobalsolutionsinc",
   youtubeEmbed: "https://www.youtube-nocookie.com/embed/-fUVZxERwPA?rel=0",
+  launchFilm: {
+    embed: "https://www.youtube-nocookie.com/embed/IKSEqG4nMA8?rel=0",
+    watch: "https://www.youtube.com/shorts/IKSEqG4nMA8",
+    title: "RhyVidya — Knowledge is Power | Live Online Learning Platform",
+  },
   logo: "https://www.rhyvidya.com/assets/rhyvidya-logo-rhytech-theme.webp",
+  logoHeader: "/assets/rhyvidya-logo-header.webp",
   logoAlt: "RhyVidya logo — violet R rising from an open book",
   parent: { name: "Rhytech Global Solutions", url: "https://rhytechglobalsolutions.ca" },
   socials: [
