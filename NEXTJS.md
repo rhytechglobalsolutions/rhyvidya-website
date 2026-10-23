@@ -35,11 +35,25 @@ approved by the owner on 2026-10-23.
 - The homepage carries a "Watch the launch film" section embedding the
   official launch video (YouTube Short IKSEqG4nMA8) via youtube-nocookie.
 
-## Known shortcuts
+## Booking / enquiry forms (server-side mail)
 
-- Forms keep the previous site's behaviour: submitting composes the request
-  and offers "Send by email" (mailto to info@rhyvidya.com) or copy-details.
-  A server-side mail endpoint (e.g. Zoho) can replace this later.
+- All forms (homepage booking, Hindi booking, coming-soon enquiries) POST to
+  `app/api/booking/route.ts`, which validates the submission server-side
+  (required fields per form type, email format, length caps, hidden honeypot
+  field) and emails it via SMTP (nodemailer) with Reply-To set to the
+  visitor, so replies go straight back to them. Subject line:
+  "RhyVidya booking/enquiry — <Subject> — <Name>".
+- Mail settings come from environment variables ONLY — never from the repo:
+  `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`
+  (default info@rhyvidya.com), `MAIL_FROM` (default SMTP_USER). See
+  `.env.example` for the list. Set them in Vercel → Settings → Environment
+  Variables and redeploy.
+- Until SMTP is configured the endpoint returns a graceful
+  "mail not configured" JSON error (503, no stack traces) and the form shows
+  its fallback: retry, WhatsApp, or email info@rhyvidya.com directly. No mail
+  app opens on the visitor's device any more.
+
+## Known shortcuts
 - The old static files (index.html, assets/, robots.txt, sitemap.xml) remain
   in the repo, inherited from the static era; the Next.js routes take
   precedence and the static files are not served by the app.
