@@ -6,8 +6,11 @@ approved by the owner on 2026-10-23.
 
 ## Structure
 
-- `/` — platform homepage (hero, subjects grid, teachers, how it works,
-  classroom, free library, pricing, FAQ, booking form)
+- `/` — platform homepage (hero, launch film, subjects grid, teachers teaser,
+  how it works, classroom, free library, pricing, FAQ, booking form for any
+  subject)
+- `/teachers` — Meet our teachers (Saraswathi spotlight + teacher cards,
+  booking CTAs)
 - `/subjects/hindi` — live subject page (Saraswathi, stages, class ladder,
   stage finder, formats, booking form set to Hindi)
 - `/subjects/tamil` — coming soon + enquire form (Saraswathi)

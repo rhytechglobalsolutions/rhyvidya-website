@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | RhyVidya",
   },
   description:
-    "Learn live online with experienced teachers across many subjects — starting with Hindi by Saraswathi; Tamil, Physics, and Mathematics coming next. First month free.",
+    "Learn live online with experienced teachers — Hindi, Tamil, Physics, and Mathematics, taught live for students worldwide. First month free.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     url: SITE.url + "/",
     title: "RhyVidya — Learn Live with Expert Teachers",
     description:
-      "Learn live online with experienced teachers across many subjects — starting with Hindi by Saraswathi; Tamil, Physics, and Mathematics coming next. First month free.",
+      "Learn live online with experienced teachers — Hindi, Tamil, Physics, and Mathematics, taught live for students worldwide. First month free.",
     images: [
       {
         url: SITE.logo,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RhyVidya — Learn Live with Expert Teachers",
     description:
-      "Learn live online with experienced teachers across many subjects — starting with Hindi by Saraswathi; Tamil, Physics, and Mathematics coming next. First month free.",
+      "Learn live online with experienced teachers — Hindi, Tamil, Physics, and Mathematics, taught live for students worldwide. First month free.",
     images: [SITE.logo],
   },
 };

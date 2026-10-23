@@ -182,6 +182,11 @@ export default function HindiPage() {
             </div>
           </div>
         </div>
+        <div className="wrap">
+          <p className="teachers-link">
+            <Link href="/teachers">Meet all of RhyVidya's teachers →</Link>
+          </p>
+        </div>
       </section>
 
       <section className="formats" id="formats">
@@ -259,8 +264,8 @@ export default function HindiPage() {
               Prefer to chat first? You can also reach us on WhatsApp — the booking form is
               still the fastest way to reserve a class.
             </p>
-            <a className="button whatsapp" href={SITE.whatsapp} target="_blank" rel="noopener">
-              Chat on WhatsApp
+            <a className="wa-text-link" href={SITE.whatsapp} target="_blank" rel="noopener">
+              Chat on WhatsApp →
             </a>
           </div>
           <BookingForm fixedSubject="Hindi — live now" showStage />

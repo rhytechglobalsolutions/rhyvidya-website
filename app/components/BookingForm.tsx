@@ -120,7 +120,8 @@ export default function BookingForm({
       {!fixedSubject && (
         <div className="field">
           <label htmlFor="subjectSelect">Subject</label>
-          <select id="subjectSelect" name="subject" defaultValue="Hindi — live now">
+          <select id="subjectSelect" name="subject" defaultValue="Not sure yet">
+            <option>Not sure yet</option>
             {SUBJECTS.map((s) => (
               <option key={s.slug} value={`${s.name} — ${s.status === "live" ? "live now" : "coming soon"}`}>
                 {s.name} — {s.status === "live" ? "live now" : "coming soon"}

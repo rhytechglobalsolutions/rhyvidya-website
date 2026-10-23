@@ -7,6 +7,7 @@ import { SITE } from "../data";
 const LINKS = [
   { href: "/#how", label: "How it works" },
   { href: "/#subjects", label: "Subjects" },
+  { href: "/teachers", label: "Teachers" },
   { href: "/subjects/hindi", label: "Hindi" },
   { href: "/subjects/tamil", label: "Tamil" },
   { href: "/subjects/physics", label: "Physics" },
