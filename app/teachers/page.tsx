@@ -6,12 +6,12 @@ import { OG_IMAGE, SITE } from "../data";
 export const metadata: Metadata = {
   title: "Meet Our Teachers",
   description:
-    "Meet RhyVidya's teachers — Saraswathi (Hindi & Tamil, 25+ years of teaching experience), Mr Athi Siva Krishnan (Physics & Mathematics), Mrs Mallika (Physics), and Mrs Vijaya (Mathematics). Live online classes, 1-to-1 and group, by appointment.",
+    "Meet RhyVidya's teachers — Saraswathi (Hindi & Tamil, 25+ years of teaching experience), Mr Athi Siva Krishnan (Physics & Mathematics), and Mrs Vijaya (Mathematics). Live online classes, 1-to-1 and group, by appointment.",
   alternates: { canonical: "/teachers" },
   openGraph: {
     title: "Meet Our Teachers | RhyVidya",
     description:
-      "Experienced teachers, teaching live — Saraswathi, Mr Athi Siva Krishnan, Mrs Mallika, and Mrs Vijaya across Hindi, Tamil, Physics, and Mathematics.",
+      "Experienced teachers, teaching live online — Saraswathi, Mr Athi Siva Krishnan, and Mrs Vijaya across Hindi, Tamil, Physics, and Mathematics.",
     url: "/teachers",
     type: "website",
     images: [OG_IMAGE],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Meet Our Teachers | RhyVidya",
     description:
-      "Experienced teachers, teaching live — Saraswathi, Mr Athi Siva Krishnan, Mrs Mallika, and Mrs Vijaya across Hindi, Tamil, Physics, and Mathematics.",
+      "Experienced teachers, teaching live online — Saraswathi, Mr Athi Siva Krishnan, and Mrs Vijaya across Hindi, Tamil, Physics, and Mathematics.",
     images: [SITE.logo],
   },
 };
@@ -38,7 +38,7 @@ const jsonLd = {
         name: "Saraswathi",
         jobTitle: "Teacher",
         description:
-          "RhyVidya's founding teacher, with 25+ years of teaching experience. She teaches Hindi and Tamil live online from India to students worldwide.",
+          "RhyVidya's founding teacher, with 25+ years of teaching experience. She teaches Hindi and Tamil live online to students worldwide.",
         knowsAbout: ["Hindi", "Tamil"],
         worksFor: { "@id": "https://www.rhyvidya.com/#organization" },
       },
@@ -59,19 +59,6 @@ const jsonLd = {
     {
       "@type": "ListItem",
       position: 3,
-      item: {
-        "@type": "Person",
-        name: "Mrs Mallika",
-        jobTitle: "Teacher",
-        description:
-          "Teaches Physics on RhyVidya in live online classes, 1-to-1 and group, by appointment.",
-        knowsAbout: ["Physics"],
-        worksFor: { "@id": "https://www.rhyvidya.com/#organization" },
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
       item: {
         "@type": "Person",
         name: "Mrs Vijaya",
@@ -130,7 +117,7 @@ export default function TeachersPage() {
             <div className="teacher-label">Our founding teacher · Hindi · Tamil</div>
             <h2>Saraswathi.</h2>
             <p>
-              Based in India and teaching students around the world, Saraswathi brings more
+              Teaching students around the world online, Saraswathi brings more
               than 25 years of teaching experience to every class. She teaches RhyVidya's
               Hindi classes — from first words to degree-level proficiency — and she will
               open Tamil next, with the same personal, level-aware teaching. Her lessons run
@@ -178,7 +165,7 @@ export default function TeachersPage() {
           <div className="section-head">
             <h2>Physics and Mathematics.</h2>
             <p>
-              Three more experienced teachers bring RhyVidya's science and maths subjects to
+              Two more experienced teachers bring RhyVidya's science and maths subjects to
               life — live online, in 1-to-1 and group classes, all by appointment.
             </p>
           </div>
@@ -193,18 +180,6 @@ export default function TeachersPage() {
               </p>
               <Link className="card-cta" href="/#bookingForm">
                 Book a class →
-              </Link>
-            </article>
-            <article className="teacher-card">
-              <h3>Mrs Mallika</h3>
-              <div className="t-subjects">Physics</div>
-              <p>
-                Teaches Physics alongside Mr Athi Siva Krishnan, explaining concepts
-                carefully in live online classes so students keep up, ask questions freely,
-                and build confidence.
-              </p>
-              <Link className="card-cta" href="/subjects/physics">
-                Explore Physics →
               </Link>
             </article>
             <article className="teacher-card">

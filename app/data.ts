@@ -77,24 +77,46 @@ export const SUBJECTS: Subject[] = [
   {
     slug: "physics",
     name: "Physics",
-    status: "soon",
-    statusLabel: "Coming soon",
+    status: "live",
+    statusLabel: "Live now",
     glyph: "F = ma",
-    teachers: "Mr Athi Siva Krishnan & Mrs Mallika",
+    teachers: "Mr Athi Siva Krishnan",
     blurb:
-      "Physics is coming to RhyVidya — concepts explained clearly and patiently in live classes with Mr Athi Siva Krishnan and Mrs Mallika, so students build real understanding step by step.",
-    points: ["Live, interactive teaching", "Register your interest today", "Be first to know at launch"],
+      "Live online Physics classes with Mr Athi Siva Krishnan — concepts explained clearly and patiently, so students build real understanding step by step.",
+    points: ["1-to-1 and group classes", "Weekday and weekend appointments", "Free first month at launch"],
   },
   {
     slug: "mathematics",
     name: "Mathematics",
-    status: "soon",
-    statusLabel: "Coming soon",
+    status: "live",
+    statusLabel: "Live now",
     glyph: "π ∑ √",
     teachers: "Mr Athi Siva Krishnan & Mrs Vijaya",
     blurb:
-      "Mathematics is coming to RhyVidya — live teaching with Mr Athi Siva Krishnan and Mrs Vijaya that works through problems step by step, building confidence as well as correct answers.",
-    points: ["Live, interactive teaching", "Register your interest today", "Be first to know at launch"],
+      "Live online Mathematics classes with Mr Athi Siva Krishnan and Mrs Vijaya — teaching that works through problems step by step, building confidence as well as correct answers.",
+    points: ["1-to-1 and group classes", "Weekday and weekend appointments", "Free first month at launch"],
+  },
+  {
+    slug: "abacus",
+    name: "Abacus",
+    status: "soon",
+    statusLabel: "Coming soon",
+    glyph: "🧮",
+    teachers: "Teachers being hired",
+    blurb:
+      "Abacus classes are coming to RhyVidya — fast, fun mental-maths training that builds speed, focus, and confidence with numbers. We are hiring experienced Abacus teachers now, and classes begin as soon as our teachers are onboard.",
+    points: ["Teachers being hired now", "Register your interest today", "Be first to know at launch"],
+  },
+  {
+    slug: "coding",
+    name: "Coding",
+    status: "soon",
+    statusLabel: "Coming soon",
+    glyph: "</>",
+    teachers: "Teachers being hired",
+    blurb:
+      "Coding classes are coming to RhyVidya — hands-on, project-based programming taught live online. We are hiring experienced Coding teachers now, and classes begin as soon as our teachers are onboard.",
+    points: ["Teachers being hired now", "Register your interest today", "Be first to know at launch"],
   },
 ];
 
@@ -177,7 +199,7 @@ export const PLANS = [
 export const FAQS = [
   {
     q: "Who can learn with RhyVidya?",
-    a: "RhyVidya is for students worldwide who want to learn live with experienced teachers. We are starting with Hindi; Tamil is next, followed by Physics and Mathematics. The final supported age range will be confirmed before registration opens.",
+    a: "RhyVidya is for students worldwide who want to learn live online with experienced teachers. Hindi, Physics, and Mathematics classes are available now; Tamil is next, and Abacus and Coding classes are coming soon. The final supported age range will be confirmed before registration opens.",
   },
   {
     q: "Will RhyVidya be easy to use?",
@@ -205,6 +227,6 @@ export const FAQS = [
   },
   {
     q: "Which subjects are coming next?",
-    a: "Tamil is next, followed by Physics and Mathematics — each taught live by an experienced teacher, like every subject on RhyVidya. Hindi is our launch subject and is live now. You can register your interest for the upcoming subjects in the booking form today.",
+    a: "Hindi, Physics, and Mathematics are live now, each taught live online by an experienced teacher. Tamil is coming next, and Abacus and Coding classes are on the way — we are hiring teachers for them now. You can book the live subjects or register your interest for the upcoming ones in the booking form today.",
   },
 ];

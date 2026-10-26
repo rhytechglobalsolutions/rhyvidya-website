@@ -157,7 +157,7 @@ export default function HindiPage() {
             <div className="teacher-label">Your Hindi teacher</div>
             <h2>Saraswathi — 25+ years of teaching.</h2>
             <p>
-              Based in India and teaching students around the world, Saraswathi leads personal
+              Teaching students around the world online, Saraswathi leads personal
               online Hindi lessons on Google Meet, Zoho Meeting, YouTube, or WhatsApp — using
               live video, screen sharing, and an interactive teaching board.
             </p>

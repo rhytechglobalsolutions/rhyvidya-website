@@ -131,8 +131,8 @@ export default function TamilPage() {
             <h2>Saraswathi.</h2>
             <p>
               The founding teacher of RhyVidya, Saraswathi brings more than 25 years of teaching
-              experience to her classes. She already teaches our launch subject, Hindi, live from
-              India to students worldwide — and she will open Tamil next, with the same personal,
+              experience to her classes. She already teaches our launch subject, Hindi, live
+              online to students worldwide — and she will open Tamil next, with the same personal,
               level-aware teaching.
             </p>
             <div className="teacher-stat">

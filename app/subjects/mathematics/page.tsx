@@ -5,14 +5,14 @@ import JsonLd from "../../components/JsonLd";
 import { OG_IMAGE, SITE } from "../../data";
 
 export const metadata: Metadata = {
-  title: "Mathematics Classes Online — Coming Soon",
+  title: "Mathematics Classes Online — Live Classes",
   description:
-    "Mathematics is coming to RhyVidya — live online classes with Mr Athi Siva Krishnan and Mrs Vijaya, working through problems step by step. Register your interest today and be first in line when enrolment opens.",
+    "Live online Mathematics classes with Mr Athi Siva Krishnan and Mrs Vijaya — problems worked through step by step, 1-to-1 and group classes by appointment. First month free.",
   alternates: { canonical: "/subjects/mathematics" },
   openGraph: {
-    title: "Mathematics Classes Online — Coming Soon | RhyVidya",
+    title: "Mathematics Classes Online | RhyVidya",
     description:
-      "Mathematics is coming to RhyVidya — live online classes with Mr Athi Siva Krishnan and Mrs Vijaya. Register your interest today.",
+      "Live online Mathematics classes with Mr Athi Siva Krishnan and Mrs Vijaya. Book a class today.",
     url: "/subjects/mathematics",
     type: "website",
     images: [OG_IMAGE],
@@ -24,9 +24,9 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      name: "Mathematics — Live Online Classes (Coming Soon)",
+      name: "Mathematics — Live Online Classes",
       description:
-        "Mathematics is coming to RhyVidya, taught live online by Mr Athi Siva Krishnan and Mrs Vijaya. Register your interest to be first in line when enrolment opens.",
+        "Live online Mathematics classes taught by Mr Athi Siva Krishnan and Mrs Vijaya. 1-to-1 and group sessions, weekday and weekend, by appointment. First month free.",
       provider: { "@id": "https://www.rhyvidya.com/#organization" },
       hasCourseInstance: {
         "@type": "CourseInstance",
@@ -62,22 +62,21 @@ export default function MathematicsPage() {
           <div className="breadcrumb">
             <Link href="/">Home</Link> · <Link href="/#subjects">Subjects</Link> · Mathematics
           </div>
-          <span className="status-pill soon">Coming soon</span>
+          <span className="status-pill">Live now · Teachers available</span>
           <h1>
-            Mathematics is <em>coming</em> to RhyVidya.
+            Learn Mathematics live, <em>step by step</em>.
           </h1>
           <p className="lede">
-            Mathematics is coming to RhyVidya — live teaching with Mr Athi Siva Krishnan and
-            Mrs Vijaya that works through problems step by step, building confidence as well as
-            correct answers. Register your interest now and be first in line when enrolment
-            opens.
+            Mathematics classes are available now on RhyVidya — live online teaching with
+            Mr Athi Siva Krishnan and Mrs Vijaya that works through problems step by step,
+            building confidence as well as correct answers. Your first month is free.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">
-              Register your interest
+              Book your free first month
             </a>
-            <Link className="button secondary" href="/subjects/hindi">
-              Start with Hindi today
+            <Link className="button secondary" href="/teachers">
+              Meet your teachers
             </Link>
           </div>
         </div>
@@ -88,7 +87,7 @@ export default function MathematicsPage() {
           <div className="section-head">
             <h2>What to expect.</h2>
             <p>
-              Mathematics on RhyVidya will follow the same simple, supported route as every
+              Mathematics on RhyVidya follows the same simple, supported route as every
               subject on the platform.
             </p>
           </div>
@@ -111,10 +110,10 @@ export default function MathematicsPage() {
             </article>
             <article className="step">
               <span className="step-num">03</span>
-              <h3>First to know at launch</h3>
+              <h3>Book by appointment</h3>
               <p>
-                Register your interest today and we will email you as soon as Mathematics
-                enrolment opens — registered students are placed first.
+                Pick your date and time on the booking calendar and we confirm your
+                appointment and online class link by email.
               </p>
             </article>
           </div>
@@ -154,12 +153,13 @@ export default function MathematicsPage() {
       <section className="contact" id="book">
         <div className="wrap contact-grid">
           <div className="contact-copy">
-            <p className="contact-label">Enquire — Mathematics</p>
-            <h2>Be first in line for Mathematics.</h2>
+            <p className="contact-label">Book Mathematics</p>
+            <h2>Book your free first month of Mathematics.</h2>
             <p>
-              Tell us who would like to learn Mathematics and we will email you from{" "}
-              <a href={`mailto:${SITE.email}`}>{SITE.email}</a> the moment enrolment opens. No
-              payment now — just your place in the queue.
+              Choose your format, date, and time — we confirm your appointment and online
+              class link by email from <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+              Classes run on Google Meet, Zoho Meeting, YouTube, or WhatsApp — whichever
+              suits you best.
             </p>
             <div className="contact-details">
               <div className="contact-detail">
@@ -174,14 +174,14 @@ export default function MathematicsPage() {
               </div>
             </div>
             <p className="contact-alt">
-              Prefer to chat first? You can also reach us on WhatsApp — the enquiry form is
-              still the fastest way to hold your place.
+              Prefer to chat first? You can also reach us on WhatsApp — the booking form is
+              still the fastest way to reserve a class.
             </p>
             <a className="wa-text-link" href={SITE.whatsapp} target="_blank" rel="noopener">
               Chat on WhatsApp →
             </a>
           </div>
-          <BookingForm mode="enquire" fixedSubject="Mathematics — coming soon" />
+          <BookingForm fixedSubject="Mathematics — live now" />
         </div>
       </section>
     </>

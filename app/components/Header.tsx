@@ -12,6 +12,8 @@ const LINKS = [
   { href: "/subjects/tamil", label: "Tamil" },
   { href: "/subjects/physics", label: "Physics" },
   { href: "/subjects/mathematics", label: "Mathematics" },
+  { href: "/subjects/abacus", label: "Abacus" },
+  { href: "/subjects/coding", label: "Coding" },
   { href: "/#pricing", label: "Plans" },
   { href: "/#book", label: "Contact" },
 ];

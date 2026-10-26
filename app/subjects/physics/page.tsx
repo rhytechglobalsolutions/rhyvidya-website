@@ -5,14 +5,14 @@ import JsonLd from "../../components/JsonLd";
 import { OG_IMAGE, SITE } from "../../data";
 
 export const metadata: Metadata = {
-  title: "Physics Classes Online — Coming Soon",
+  title: "Physics Classes Online — Live Classes with Mr Athi Siva Krishnan",
   description:
-    "Physics is coming to RhyVidya — live online classes with Mr Athi Siva Krishnan and Mrs Mallika, explaining concepts clearly and patiently. Register your interest today and be first in line when enrolment opens.",
+    "Live online Physics classes with Mr Athi Siva Krishnan — concepts explained clearly and patiently, 1-to-1 and group classes by appointment. First month free.",
   alternates: { canonical: "/subjects/physics" },
   openGraph: {
-    title: "Physics Classes Online — Coming Soon | RhyVidya",
+    title: "Physics Classes Online | RhyVidya",
     description:
-      "Physics is coming to RhyVidya — live online classes with Mr Athi Siva Krishnan and Mrs Mallika. Register your interest today.",
+      "Live online Physics classes with Mr Athi Siva Krishnan — concepts explained clearly and patiently. Book a class today.",
     url: "/subjects/physics",
     type: "website",
     images: [OG_IMAGE],
@@ -24,17 +24,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      name: "Physics — Live Online Classes (Coming Soon)",
+      name: "Physics — Live Online Classes",
       description:
-        "Physics is coming to RhyVidya, taught live online by Mr Athi Siva Krishnan and Mrs Mallika. Register your interest to be first in line when enrolment opens.",
+        "Live online Physics classes taught by Mr Athi Siva Krishnan. 1-to-1 and group sessions, weekday and weekend, by appointment. First month free.",
       provider: { "@id": "https://www.rhyvidya.com/#organization" },
       hasCourseInstance: {
         "@type": "CourseInstance",
         courseMode: "online",
-        instructor: [
-          { "@type": "Person", name: "Athi Siva Krishnan" },
-          { "@type": "Person", name: "Mallika" },
-        ],
+        instructor: [{ "@type": "Person", name: "Athi Siva Krishnan" }],
       },
     },
     {
@@ -62,22 +59,21 @@ export default function PhysicsPage() {
           <div className="breadcrumb">
             <Link href="/">Home</Link> · <Link href="/#subjects">Subjects</Link> · Physics
           </div>
-          <span className="status-pill soon">Coming soon</span>
+          <span className="status-pill">Live now · Teacher available</span>
           <h1>
-            Physics is <em>coming</em> to RhyVidya.
+            Learn Physics live with <em>Mr Athi Siva Krishnan</em>.
           </h1>
           <p className="lede">
-            Physics is coming to RhyVidya — concepts explained clearly and patiently in live
-            classes with Mr Athi Siva Krishnan and Mrs Mallika, so students build real
-            understanding step by step. Register your interest now and be first in line when
-            enrolment opens.
+            Physics classes are available now on RhyVidya — concepts explained clearly and
+            patiently in live online classes with Mr Athi Siva Krishnan, so students build
+            real understanding step by step. Your first month is free.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">
-              Register your interest
+              Book your free first month
             </a>
-            <Link className="button secondary" href="/subjects/hindi">
-              Start with Hindi today
+            <Link className="button secondary" href="/teachers">
+              Meet your teacher
             </Link>
           </div>
         </div>
@@ -88,7 +84,7 @@ export default function PhysicsPage() {
           <div className="section-head">
             <h2>What to expect.</h2>
             <p>
-              Physics on RhyVidya will follow the same simple, supported route as every subject
+              Physics on RhyVidya follows the same simple, supported route as every subject
               on the platform.
             </p>
           </div>
@@ -111,10 +107,10 @@ export default function PhysicsPage() {
             </article>
             <article className="step">
               <span className="step-num">03</span>
-              <h3>First to know at launch</h3>
+              <h3>Book by appointment</h3>
               <p>
-                Register your interest today and we will email you as soon as Physics enrolment
-                opens — registered students are placed first.
+                Pick your date and time on the booking calendar and we confirm your
+                appointment and online class link by email.
               </p>
             </article>
           </div>
@@ -124,8 +120,8 @@ export default function PhysicsPage() {
       <section className="teacher">
         <div className="wrap">
           <div className="section-head">
-            <h2>Your Physics teachers.</h2>
-            <p>Two experienced teachers, one goal — Physics that actually makes sense.</p>
+            <h2>Your Physics teacher.</h2>
+            <p>An experienced teacher, one goal — Physics that actually makes sense.</p>
           </div>
           <div className="teacher-list">
             <article className="teacher-card">
@@ -134,14 +130,6 @@ export default function PhysicsPage() {
               <p>
                 Teaches Physics and Mathematics on RhyVidya — clear, patient, step-by-step
                 teaching that builds real understanding and exam confidence.
-              </p>
-            </article>
-            <article className="teacher-card">
-              <h3>Mrs Mallika</h3>
-              <div className="t-subjects">Physics</div>
-              <p>
-                Teaches Physics alongside Mr Athi Siva Krishnan, explaining concepts carefully
-                so students keep up, ask questions freely, and build confidence.
               </p>
             </article>
           </div>
@@ -154,12 +142,13 @@ export default function PhysicsPage() {
       <section className="contact" id="book">
         <div className="wrap contact-grid">
           <div className="contact-copy">
-            <p className="contact-label">Enquire — Physics</p>
-            <h2>Be first in line for Physics.</h2>
+            <p className="contact-label">Book Physics</p>
+            <h2>Book your free first month of Physics.</h2>
             <p>
-              Tell us who would like to learn Physics and we will email you from{" "}
-              <a href={`mailto:${SITE.email}`}>{SITE.email}</a> the moment enrolment opens. No
-              payment now — just your place in the queue.
+              Choose your format, date, and time — we confirm your appointment and online
+              class link by email from <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+              Classes run on Google Meet, Zoho Meeting, YouTube, or WhatsApp — whichever
+              suits you best.
             </p>
             <div className="contact-details">
               <div className="contact-detail">
@@ -174,14 +163,14 @@ export default function PhysicsPage() {
               </div>
             </div>
             <p className="contact-alt">
-              Prefer to chat first? You can also reach us on WhatsApp — the enquiry form is
-              still the fastest way to hold your place.
+              Prefer to chat first? You can also reach us on WhatsApp — the booking form is
+              still the fastest way to reserve a class.
             </p>
             <a className="wa-text-link" href={SITE.whatsapp} target="_blank" rel="noopener">
               Chat on WhatsApp →
             </a>
           </div>
-          <BookingForm mode="enquire" fixedSubject="Physics — coming soon" />
+          <BookingForm fixedSubject="Physics — live now" />
         </div>
       </section>
     </>

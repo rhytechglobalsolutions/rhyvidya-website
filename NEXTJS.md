@@ -14,10 +14,17 @@ approved by the owner on 2026-10-23.
 - `/subjects/hindi` — live subject page (Saraswathi, stages, class ladder,
   stage finder, formats, booking form set to Hindi)
 - `/subjects/tamil` — coming soon + enquire form (Saraswathi)
-- `/subjects/physics` — coming soon + enquire form (Mr Athi Siva Krishnan &
-  Mrs Mallika)
-- `/subjects/mathematics` — coming soon + enquire form (Mr Athi Siva Krishnan
-  & Mrs Vijaya)
+- `/subjects/physics` — LIVE + booking form (Mr Athi Siva Krishnan) —
+  updated 2026-10-26: teachers available, bookable; Mrs Mallika removed
+  (available only from April 2027)
+- `/subjects/mathematics` — LIVE + booking form (Mr Athi Siva Krishnan
+  & Mrs Vijaya) — updated 2026-10-26: teachers available, bookable
+- `/subjects/abacus` — coming soon + enquire form (teachers being hired,
+  added 2026-10-26)
+- `/subjects/coding` — coming soon + enquire form (teachers being hired,
+  added 2026-10-26)
+- Copy rule (2026-10-26): never highlight that teachers are based in India —
+  promote live online classes with teachers available only.
 - `app/robots.ts` / `app/sitemap.ts` — serve /robots.txt and /sitemap.xml at
   the domain root.
 
