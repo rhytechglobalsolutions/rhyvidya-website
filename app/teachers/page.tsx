@@ -6,7 +6,7 @@ import { OG_IMAGE, SITE } from "../data";
 export const metadata: Metadata = {
   title: "Meet Our Teachers",
   description:
-    "Meet RhyVidya's teachers — Saraswathi (Hindi & Tamil, 25+ years of teaching experience), Mr Athi Siva Krishnan (Physics & Mathematics), and Mrs Vijaya (Mathematics). Live online classes, 1-to-1 and group, by appointment.",
+    "Meet RhyVidya's teachers — Saraswathi (Hindi & Tamil, 25+ years of teaching experience), Mr Athi Siva Krishnan (Physics & Mathematics), and Mrs Vijaya (Physics & Mathematics). Live online classes, 1-to-1 and group, by appointment.",
   alternates: { canonical: "/teachers" },
   openGraph: {
     title: "Meet Our Teachers | RhyVidya",
@@ -64,8 +64,8 @@ const jsonLd = {
         name: "Mrs Vijaya",
         jobTitle: "Teacher",
         description:
-          "Teaches Mathematics on RhyVidya in live online classes, 1-to-1 and group, by appointment.",
-        knowsAbout: ["Mathematics"],
+          "Teaches Physics and Mathematics on RhyVidya in live online classes, 1-to-1 and group, by appointment.",
+        knowsAbout: ["Physics", "Mathematics"],
         worksFor: { "@id": "https://www.rhyvidya.com/#organization" },
       },
     },
@@ -184,10 +184,10 @@ export default function TeachersPage() {
             </article>
             <article className="teacher-card">
               <h3>Mrs Vijaya</h3>
-              <div className="t-subjects">Mathematics</div>
+              <div className="t-subjects">Physics · Mathematics</div>
               <p>
-                Teaches Mathematics alongside Mr Athi Siva Krishnan, working through problems
-                step by step in live online classes until the method clicks.
+                Teaches Physics and Mathematics alongside Mr Athi Siva Krishnan, working
+                through problems step by step in live online classes until the method clicks.
               </p>
               <Link className="card-cta" href="/subjects/mathematics">
                 Explore Mathematics →

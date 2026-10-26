@@ -14,7 +14,8 @@ approved by the owner on 2026-10-23.
 - `/subjects/hindi` — live subject page (Saraswathi, stages, class ladder,
   stage finder, formats, booking form set to Hindi)
 - `/subjects/tamil` — coming soon + enquire form (Saraswathi)
-- `/subjects/physics` — LIVE + booking form (Mr Athi Siva Krishnan) —
+- `/subjects/physics` — LIVE + booking form (Mr Athi Siva Krishnan &
+  Mrs Vijaya — Vijaya added to Physics by Sree on 2026-10-26) —
   updated 2026-10-26: teachers available, bookable; Mrs Mallika removed
   (available only from April 2027)
 - `/subjects/mathematics` — LIVE + booking form (Mr Athi Siva Krishnan

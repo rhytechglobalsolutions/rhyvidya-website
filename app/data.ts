@@ -80,9 +80,9 @@ export const SUBJECTS: Subject[] = [
     status: "live",
     statusLabel: "Live now",
     glyph: "F = ma",
-    teachers: "Mr Athi Siva Krishnan",
+    teachers: "Mr Athi Siva Krishnan & Mrs Vijaya",
     blurb:
-      "Live online Physics classes with Mr Athi Siva Krishnan — concepts explained clearly and patiently, so students build real understanding step by step.",
+      "Live online Physics classes with Mr Athi Siva Krishnan and Mrs Vijaya — concepts explained clearly and patiently, so students build real understanding step by step.",
     points: ["1-to-1 and group classes", "Weekday and weekend appointments", "Free first month at launch"],
   },
   {

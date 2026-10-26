@@ -5,14 +5,14 @@ import JsonLd from "../../components/JsonLd";
 import { OG_IMAGE, SITE } from "../../data";
 
 export const metadata: Metadata = {
-  title: "Physics Classes Online — Live Classes with Mr Athi Siva Krishnan",
+  title: "Physics Classes Online — Live Classes",
   description:
-    "Live online Physics classes with Mr Athi Siva Krishnan — concepts explained clearly and patiently, 1-to-1 and group classes by appointment. First month free.",
+    "Live online Physics classes with Mr Athi Siva Krishnan and Mrs Vijaya — concepts explained clearly and patiently, 1-to-1 and group classes by appointment. First month free.",
   alternates: { canonical: "/subjects/physics" },
   openGraph: {
     title: "Physics Classes Online | RhyVidya",
     description:
-      "Live online Physics classes with Mr Athi Siva Krishnan — concepts explained clearly and patiently. Book a class today.",
+      "Live online Physics classes with Mr Athi Siva Krishnan and Mrs Vijaya — concepts explained clearly and patiently. Book a class today.",
     url: "/subjects/physics",
     type: "website",
     images: [OG_IMAGE],
@@ -26,12 +26,15 @@ const jsonLd = {
       "@type": "Course",
       name: "Physics — Live Online Classes",
       description:
-        "Live online Physics classes taught by Mr Athi Siva Krishnan. 1-to-1 and group sessions, weekday and weekend, by appointment. First month free.",
+        "Live online Physics classes taught by Mr Athi Siva Krishnan and Mrs Vijaya. 1-to-1 and group sessions, weekday and weekend, by appointment. First month free.",
       provider: { "@id": "https://www.rhyvidya.com/#organization" },
       hasCourseInstance: {
         "@type": "CourseInstance",
         courseMode: "online",
-        instructor: [{ "@type": "Person", name: "Athi Siva Krishnan" }],
+        instructor: [
+          { "@type": "Person", name: "Athi Siva Krishnan" },
+          { "@type": "Person", name: "Vijaya" },
+        ],
       },
     },
     {
@@ -65,8 +68,8 @@ export default function PhysicsPage() {
           </h1>
           <p className="lede">
             Physics classes are available now on RhyVidya — concepts explained clearly and
-            patiently in live online classes with Mr Athi Siva Krishnan, so students build
-            real understanding step by step. Your first month is free.
+            patiently in live online classes with Mr Athi Siva Krishnan and Mrs Vijaya, so
+            students build real understanding step by step. Your first month is free.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">
@@ -120,8 +123,8 @@ export default function PhysicsPage() {
       <section className="teacher">
         <div className="wrap">
           <div className="section-head">
-            <h2>Your Physics teacher.</h2>
-            <p>An experienced teacher, one goal — Physics that actually makes sense.</p>
+            <h2>Your Physics teachers.</h2>
+            <p>Two experienced teachers, one goal — Physics that actually makes sense.</p>
           </div>
           <div className="teacher-list">
             <article className="teacher-card">
@@ -130,6 +133,15 @@ export default function PhysicsPage() {
               <p>
                 Teaches Physics and Mathematics on RhyVidya — clear, patient, step-by-step
                 teaching that builds real understanding and exam confidence.
+              </p>
+            </article>
+            <article className="teacher-card">
+              <h3>Mrs Vijaya</h3>
+              <div className="t-subjects">Physics · Mathematics</div>
+              <p>
+                Teaches Physics and Mathematics alongside Mr Athi Siva Krishnan, explaining
+                concepts carefully in live online classes so students keep up, ask questions
+                freely, and build confidence.
               </p>
             </article>
           </div>
