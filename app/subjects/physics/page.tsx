@@ -7,7 +7,7 @@ import { OG_IMAGE, SITE } from "../../data";
 export const metadata: Metadata = {
   title: "Physics Classes Online — Live Classes",
   description:
-    "Live online Physics classes with Mr Athi Siva Krishnan and Mrs Vijaya — concepts explained clearly and patiently, 1-to-1 and group classes by appointment. First month free.",
+    "Live online Physics classes for Grades 9–12 with Mr Athi Siva Krishnan and Mrs Vijaya — concepts explained clearly and patiently, 1-to-1 and group classes by appointment. Free assessment and first month free.",
   alternates: { canonical: "/subjects/physics" },
   openGraph: {
     title: "Physics Classes Online | RhyVidya",
@@ -26,7 +26,7 @@ const jsonLd = {
       "@type": "Course",
       name: "Physics — Live Online Classes",
       description:
-        "Live online Physics classes taught by Mr Athi Siva Krishnan and Mrs Vijaya. 1-to-1 and group sessions, weekday and weekend, by appointment. First month free.",
+        "Live online Physics classes for Grades 9–12, taught by Mr Athi Siva Krishnan and Mrs Vijaya. 1-to-1 and group sessions, weekday and weekend, by appointment. Free assessment and first month free.",
       provider: { "@id": "https://www.rhyvidya.com/#organization" },
       hasCourseInstance: {
         "@type": "CourseInstance",
@@ -67,9 +67,10 @@ export default function PhysicsPage() {
             Learn Physics live with <em>Mr Athi Siva Krishnan</em>.
           </h1>
           <p className="lede">
-            Physics classes are available now on RhyVidya — concepts explained clearly and
-            patiently in live online classes with Mr Athi Siva Krishnan and Mrs Vijaya, so
-            students build real understanding step by step. Your first month is free.
+            Physics classes are available now on RhyVidya, for students in Grades 9–12 —
+            concepts explained clearly and patiently in live online classes with Mr Athi Siva
+            Krishnan and Mrs Vijaya, so students build real understanding step by step. Every
+            booking starts with a free assessment, and your first month is free.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">
@@ -114,6 +115,131 @@ export default function PhysicsPage() {
               <p>
                 Pick your date and time on the booking calendar and we confirm your
                 appointment and online class link by email.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="route" id="assessment">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Start with a free assessment.</h2>
+            <p>
+              Before your first class, your teacher checks where you are — so you start at
+              exactly the right level, with a clear plan for what comes next.
+            </p>
+          </div>
+          <div className="steps">
+            <article className="step">
+              <span className="step-num">01</span>
+              <h3>Tell us where you are</h3>
+              <p>
+                Book below and mention your grade and the topics you find easy or hard — your
+                teacher prepares a short assessment pitched at your level.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">02</span>
+              <h3>Get your level and plan</h3>
+              <p>
+                Your teacher works through the assessment with you, confirms your starting
+                level, and sets out the topics your free first month will cover.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">03</span>
+              <h3>Begin your free month</h3>
+              <p>
+                Start classes at the right level from day one — no guessing, no repeating what
+                you already know.
+              </p>
+            </article>
+          </div>
+          <div className="hero-actions">
+            <a className="button primary" href="#bookingForm">
+              Book your free assessment
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="route">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Support that continues between classes.</h2>
+            <p>
+              Learning does not stop when the class ends — students and parents stay supported
+              every week.
+            </p>
+          </div>
+          <div className="steps">
+            <article className="step">
+              <span className="step-num">01</span>
+              <h3>Weekly progress updates for parents</h3>
+              <p>
+                After each week of classes, parents receive a short update on WhatsApp or
+                email — what was covered, what comes next, and one thing to practise.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">02</span>
+              <h3>Weekly practice</h3>
+              <p>
+                A short practice worksheet from your teacher each week, paired with free
+                practice videos from the RhyVidya library to review at home.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">03</span>
+              <h3>Questions, answered</h3>
+              <p>
+                Send questions any time on WhatsApp — reminders, quick questions, and support
+                stay on the channel families already use.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="formats" id="exam-prep">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Built for school success — and exams.</h2>
+            <p>
+              Physics on RhyVidya follows the Ontario curriculum, so class work reinforces
+              school work — and exam practice is built in from the start.
+            </p>
+          </div>
+          <div className="format-grid">
+            <article className="format-card">
+              <b>Ontario curriculum aligned</b>
+              <p>
+                Lessons follow the Ontario curriculum from Grade 9 and 10 science through
+                Grade 11 and 12 Physics — kinematics, forces, energy, waves, and fields,
+                covered in step with school.
+              </p>
+            </article>
+            <article className="format-card">
+              <b>Senior exam preparation</b>
+              <p>
+                Grade 11 and 12 students (SPH3U and SPH4U) prepare for school exams with
+                exam-style problems, structured revision, and practice under timed
+                conditions.
+              </p>
+            </article>
+            <article className="format-card">
+              <b>Problems, worked step by step</b>
+              <p>
+                Physics rewards method. Students learn to set up, solve, and check problems
+                systematically — the habit that turns understanding into marks.
+              </p>
+            </article>
+            <article className="format-card">
+              <b>Ready for what comes next</b>
+              <p>
+                A strong Physics foundation for students aiming at engineering, health
+                sciences, and other university programs that build on senior Physics.
               </p>
             </article>
           </div>

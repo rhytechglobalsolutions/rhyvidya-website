@@ -7,7 +7,7 @@ import { OG_IMAGE, SITE } from "../../data";
 export const metadata: Metadata = {
   title: "Coding Classes Online — Coming Soon",
   description:
-    "Coding classes are coming to RhyVidya — hands-on, project-based programming taught live online. We are hiring experienced Coding teachers now. Register your interest today and be first in line when enrolment opens.",
+    "Coding classes for Grades 1–8 are coming to RhyVidya — hands-on, project-based programming taught live online. We are hiring experienced Coding teachers now. Register your interest today and be first in line when enrolment opens.",
   alternates: { canonical: "/subjects/coding" },
   openGraph: {
     title: "Coding Classes Online — Coming Soon | RhyVidya",
@@ -63,10 +63,10 @@ export default function CodingPage() {
             Coding is <em>coming</em> to RhyVidya.
           </h1>
           <p className="lede">
-            Coding classes are coming to RhyVidya — hands-on, project-based programming taught
-            live online, where students learn by building real things. We are hiring experienced
-            Coding teachers now, and classes begin as soon as our teachers are onboard. Register
-            your interest now and be first in line when enrolment opens.
+            Coding classes are coming to RhyVidya — hands-on, project-based programming for
+            Grades 1–8, taught live online, where students learn by building real things. We are
+            hiring experienced Coding teachers now, and classes begin as soon as our teachers are
+            onboard. Register your interest now and be first in line when enrolment opens.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">

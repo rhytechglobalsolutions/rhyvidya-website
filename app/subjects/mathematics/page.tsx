@@ -7,7 +7,7 @@ import { OG_IMAGE, SITE } from "../../data";
 export const metadata: Metadata = {
   title: "Mathematics Classes Online — Live Classes",
   description:
-    "Live online Mathematics classes with Mr Athi Siva Krishnan and Mrs Vijaya — problems worked through step by step, 1-to-1 and group classes by appointment. First month free.",
+    "Live online Mathematics classes for Grades 3–12 with Mr Athi Siva Krishnan and Mrs Vijaya — problems worked through step by step, 1-to-1 and group classes by appointment. Free assessment and first month free.",
   alternates: { canonical: "/subjects/mathematics" },
   openGraph: {
     title: "Mathematics Classes Online | RhyVidya",
@@ -26,7 +26,7 @@ const jsonLd = {
       "@type": "Course",
       name: "Mathematics — Live Online Classes",
       description:
-        "Live online Mathematics classes taught by Mr Athi Siva Krishnan and Mrs Vijaya. 1-to-1 and group sessions, weekday and weekend, by appointment. First month free.",
+        "Live online Mathematics classes for Grades 3–12, taught by Mr Athi Siva Krishnan and Mrs Vijaya. 1-to-1 and group sessions, weekday and weekend, by appointment. Free assessment and first month free.",
       provider: { "@id": "https://www.rhyvidya.com/#organization" },
       hasCourseInstance: {
         "@type": "CourseInstance",
@@ -67,9 +67,10 @@ export default function MathematicsPage() {
             Learn Mathematics live, <em>step by step</em>.
           </h1>
           <p className="lede">
-            Mathematics classes are available now on RhyVidya — live online teaching with
-            Mr Athi Siva Krishnan and Mrs Vijaya that works through problems step by step,
-            building confidence as well as correct answers. Your first month is free.
+            Mathematics classes are available now on RhyVidya, for students in Grades 3–12 —
+            live online teaching with Mr Athi Siva Krishnan and Mrs Vijaya that works through
+            problems step by step, building confidence as well as correct answers. Every
+            booking starts with a free assessment, and your first month is free.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">
@@ -114,6 +115,131 @@ export default function MathematicsPage() {
               <p>
                 Pick your date and time on the booking calendar and we confirm your
                 appointment and online class link by email.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="route" id="assessment">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Start with a free assessment.</h2>
+            <p>
+              Before your first class, your teacher checks where you are — so you start at
+              exactly the right level, with a clear plan for what comes next.
+            </p>
+          </div>
+          <div className="steps">
+            <article className="step">
+              <span className="step-num">01</span>
+              <h3>Tell us where you are</h3>
+              <p>
+                Book below and mention your grade and the topics you find easy or hard — your
+                teacher prepares a short assessment pitched at your level.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">02</span>
+              <h3>Get your level and plan</h3>
+              <p>
+                Your teacher works through the assessment with you, confirms your starting
+                level, and sets out the topics your free first month will cover.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">03</span>
+              <h3>Begin your free month</h3>
+              <p>
+                Start classes at the right level from day one — no guessing, no repeating what
+                you already know.
+              </p>
+            </article>
+          </div>
+          <div className="hero-actions">
+            <a className="button primary" href="#bookingForm">
+              Book your free assessment
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="route">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Support that continues between classes.</h2>
+            <p>
+              Learning does not stop when the class ends — students and parents stay supported
+              every week.
+            </p>
+          </div>
+          <div className="steps">
+            <article className="step">
+              <span className="step-num">01</span>
+              <h3>Weekly progress updates for parents</h3>
+              <p>
+                After each week of classes, parents receive a short update on WhatsApp or
+                email — what was covered, what comes next, and one thing to practise.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">02</span>
+              <h3>Weekly practice</h3>
+              <p>
+                A short practice worksheet from your teacher each week, paired with free
+                practice videos from the RhyVidya library to review at home.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">03</span>
+              <h3>Questions, answered</h3>
+              <p>
+                Send questions any time on WhatsApp — reminders, quick questions, and support
+                stay on the channel families already use.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="formats" id="exam-prep">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Built for school success — and exams.</h2>
+            <p>
+              Mathematics on RhyVidya follows the Ontario curriculum, so class work reinforces
+              school work — and exam practice is built in from the start.
+            </p>
+          </div>
+          <div className="format-grid">
+            <article className="format-card">
+              <b>Ontario curriculum aligned</b>
+              <p>
+                Lessons follow the Ontario mathematics curriculum for Grades 3–12, topic by
+                topic — so students strengthen exactly what school is teaching, and get ahead
+                where they are ready.
+              </p>
+            </article>
+            <article className="format-card">
+              <b>EQAO readiness</b>
+              <p>
+                Grade 9 students practise in the style of the EQAO mathematics assessment —
+                the same kinds of questions, worked through step by step until the format
+                feels familiar.
+              </p>
+            </article>
+            <article className="format-card">
+              <b>Senior exam preparation</b>
+              <p>
+                Grades 11 and 12 students prepare for school exams with exam-style questions,
+                timed practice, and revision plans shaped around their test dates.
+              </p>
+            </article>
+            <article className="format-card">
+              <b>Confidence that carries over</b>
+              <p>
+                The same step-by-step method that builds understanding in class builds calm,
+                methodical problem-solving under exam conditions.
               </p>
             </article>
           </div>

@@ -67,7 +67,8 @@ export default function HindiPage() {
           <p className="lede">
             Hindi is RhyVidya's launch subject — live online classes with Saraswathi, a teacher of
             25+ years, from your very first words (Parichaya) all the way to degree-level
-            proficiency (Praveen). Your first month is free.
+            proficiency (Praveen). Hindi welcomes learners of all ages, every booking starts
+            with a free assessment, and your first month is free.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">
@@ -85,8 +86,9 @@ export default function HindiPage() {
           <div className="finder-copy">
             <h2>Where should you begin in Hindi?</h2>
             <p>
-              Answer two quick questions for a starting-stage suggestion. Your teacher can
-              confirm the best fit when registration opens.
+              This is your free assessment: answer two quick questions for a starting-stage
+              suggestion, and Saraswathi confirms your level before your first class — so you
+              begin at exactly the right stage of the ladder.
             </p>
           </div>
           <StageFinder />
@@ -186,6 +188,44 @@ export default function HindiPage() {
           <p className="teachers-link">
             <Link href="/teachers">Meet all of RhyVidya's teachers →</Link>
           </p>
+        </div>
+      </section>
+
+      <section className="route">
+        <div className="wrap">
+          <div className="section-head">
+            <h2>Support that continues between classes.</h2>
+            <p>
+              Learning does not stop when the class ends — students and parents stay supported
+              every week.
+            </p>
+          </div>
+          <div className="steps">
+            <article className="step">
+              <span className="step-num">01</span>
+              <h3>Weekly progress updates for parents</h3>
+              <p>
+                After each week of classes, parents receive a short update on WhatsApp or
+                email — what was covered, what comes next, and one thing to practise.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">02</span>
+              <h3>Weekly practice</h3>
+              <p>
+                A short practice worksheet from your teacher each week, paired with free
+                practice videos from the RhyVidya library to review at home.
+              </p>
+            </article>
+            <article className="step">
+              <span className="step-num">03</span>
+              <h3>Questions, answered</h3>
+              <p>
+                Send questions any time on WhatsApp — reminders, quick questions, and support
+                stay on the channel families already use.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 

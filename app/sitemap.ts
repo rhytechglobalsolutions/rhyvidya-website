@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE, SUBJECTS } from "./data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-10-26");
+  const lastModified = new Date("2026-10-27");
   return [
     {
       url: `${SITE.url}/`,

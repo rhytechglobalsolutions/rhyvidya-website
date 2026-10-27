@@ -44,6 +44,7 @@ export type Subject = {
   glyphLang?: string;
   glyphClass?: string;
   teachers: string;
+  ageBand: string;
   blurb: string;
   points: string[];
 };
@@ -57,9 +58,10 @@ export const SUBJECTS: Subject[] = [
     glyph: "हिन्दी",
     glyphLang: "hi",
     teachers: "Saraswathi",
+    ageBand: "All ages",
     blurb:
       "Live online Hindi classes with Saraswathi, a teacher of 25+ years — from your first words (Parichaya) all the way to degree-level proficiency (Praveen).",
-    points: ["1-to-1 and group classes", "Weekday and weekend appointments", "Free first month at launch"],
+    points: ["Free assessment + free first month", "1-to-1 and group classes", "Weekly progress updates for parents"],
   },
   {
     slug: "tamil",
@@ -70,6 +72,7 @@ export const SUBJECTS: Subject[] = [
     glyphLang: "ta",
     glyphClass: "tamil-script",
     teachers: "Saraswathi",
+    ageBand: "All ages",
     blurb:
       "Tamil is the next subject opening on RhyVidya, taught by Saraswathi — the same experienced teacher behind our Hindi classes. Register your interest now and be first in line when enrolment opens.",
     points: ["Live, interactive teaching", "Register your interest today", "Be first to know at launch"],
@@ -81,9 +84,10 @@ export const SUBJECTS: Subject[] = [
     statusLabel: "Live now",
     glyph: "F = ma",
     teachers: "Mr Athi Siva Krishnan & Mrs Vijaya",
+    ageBand: "Grades 9–12",
     blurb:
       "Live online Physics classes with Mr Athi Siva Krishnan and Mrs Vijaya — concepts explained clearly and patiently, so students build real understanding step by step.",
-    points: ["1-to-1 and group classes", "Weekday and weekend appointments", "Free first month at launch"],
+    points: ["Free assessment + free first month", "1-to-1 and group classes", "Weekly progress updates for parents"],
   },
   {
     slug: "mathematics",
@@ -92,9 +96,10 @@ export const SUBJECTS: Subject[] = [
     statusLabel: "Live now",
     glyph: "π ∑ √",
     teachers: "Mr Athi Siva Krishnan & Mrs Vijaya",
+    ageBand: "Grades 3–12",
     blurb:
       "Live online Mathematics classes with Mr Athi Siva Krishnan and Mrs Vijaya — teaching that works through problems step by step, building confidence as well as correct answers.",
-    points: ["1-to-1 and group classes", "Weekday and weekend appointments", "Free first month at launch"],
+    points: ["Free assessment + free first month", "1-to-1 and group classes", "Weekly progress updates for parents"],
   },
   {
     slug: "abacus",
@@ -103,6 +108,7 @@ export const SUBJECTS: Subject[] = [
     statusLabel: "Coming soon",
     glyph: "🧮",
     teachers: "Teachers being hired",
+    ageBand: "Ages 5–14",
     blurb:
       "Abacus classes are coming to RhyVidya — fast, fun mental-maths training that builds speed, focus, and confidence with numbers. We are hiring experienced Abacus teachers now, and classes begin as soon as our teachers are onboard.",
     points: ["Teachers being hired now", "Register your interest today", "Be first to know at launch"],
@@ -114,8 +120,21 @@ export const SUBJECTS: Subject[] = [
     statusLabel: "Coming soon",
     glyph: "</>",
     teachers: "Teachers being hired",
+    ageBand: "Grades 1–8",
     blurb:
       "Coding classes are coming to RhyVidya — hands-on, project-based programming taught live online. We are hiring experienced Coding teachers now, and classes begin as soon as our teachers are onboard.",
+    points: ["Teachers being hired now", "Register your interest today", "Be first to know at launch"],
+  },
+  {
+    slug: "english",
+    name: "English",
+    status: "soon",
+    statusLabel: "Coming soon",
+    glyph: "Aa",
+    teachers: "Teachers being hired",
+    ageBand: "All school grades",
+    blurb:
+      "English classes are coming to RhyVidya — reading comprehension, grammar, spelling, vocabulary, and writing, taught live online. We are hiring experienced English teachers now. Register your interest today and be first in line when enrolment opens.",
     points: ["Teachers being hired now", "Register your interest today", "Be first to know at launch"],
   },
 ];
@@ -199,7 +218,7 @@ export const PLANS = [
 export const FAQS = [
   {
     q: "Who can learn with RhyVidya?",
-    a: "RhyVidya is for students worldwide who want to learn live online with experienced teachers. Hindi, Physics, and Mathematics classes are available now; Tamil is next, and Abacus and Coding classes are coming soon. The final supported age range will be confirmed before registration opens.",
+    a: "RhyVidya is for students worldwide who want to learn live online with experienced teachers. Hindi, Physics, and Mathematics classes are available now; Tamil is next, and Abacus, Coding, and English classes are coming soon. Each subject has its own age and grade range: Mathematics is for Grades 3–12 and Physics for Grades 9–12, Hindi and Tamil welcome learners of all ages, Abacus is for ages 5–14, and Coding is for Grades 1–8.",
   },
   {
     q: "Will RhyVidya be easy to use?",
@@ -211,7 +230,7 @@ export const FAQS = [
   },
   {
     q: "What is included in the launch offer?",
-    a: "The first month is free when RhyVidya launches. If a student continues afterward, the paid plan begins with one month's fee as a deposit plus the selected subscription payment.",
+    a: "Every booking starts with a free assessment, so your teacher can place you at the right level before classes begin — and your first month of classes is free. If a student continues afterward, the paid plan begins with one month's fee as a deposit plus the selected subscription payment.",
   },
   {
     q: "Which payment plans will be available?",
@@ -227,6 +246,6 @@ export const FAQS = [
   },
   {
     q: "Which subjects are coming next?",
-    a: "Hindi, Physics, and Mathematics are live now, each taught live online by an experienced teacher. Tamil is coming next, and Abacus and Coding classes are on the way — we are hiring teachers for them now. You can book the live subjects or register your interest for the upcoming ones in the booking form today.",
+    a: "Hindi, Physics, and Mathematics are live now, each taught live online by an experienced teacher. Tamil is coming next, and Abacus, Coding, and English classes are on the way — we are hiring teachers for them now. You can book the live subjects or register your interest for the upcoming ones in the booking form today.",
   },
 ];

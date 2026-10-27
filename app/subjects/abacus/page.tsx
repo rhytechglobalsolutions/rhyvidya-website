@@ -7,7 +7,7 @@ import { OG_IMAGE, SITE } from "../../data";
 export const metadata: Metadata = {
   title: "Abacus Classes Online — Coming Soon",
   description:
-    "Abacus classes are coming to RhyVidya — fast, fun mental-maths training taught live online. We are hiring experienced Abacus teachers now. Register your interest today and be first in line when enrolment opens.",
+    "Abacus classes for ages 5–14 are coming to RhyVidya — fast, fun mental-maths training taught live online. We are hiring experienced Abacus teachers now. Register your interest today and be first in line when enrolment opens.",
   alternates: { canonical: "/subjects/abacus" },
   openGraph: {
     title: "Abacus Classes Online — Coming Soon | RhyVidya",
@@ -63,10 +63,11 @@ export default function AbacusPage() {
             Abacus is <em>coming</em> to RhyVidya.
           </h1>
           <p className="lede">
-            Abacus classes are coming to RhyVidya — fast, fun mental-maths training that builds
-            speed, focus, and confidence with numbers, taught live online. We are hiring
-            experienced Abacus teachers now, and classes begin as soon as our teachers are
-            onboard. Register your interest now and be first in line when enrolment opens.
+            Abacus classes are coming to RhyVidya — fast, fun mental-maths training for ages
+            5–14 that builds speed, focus, and confidence with numbers, taught live online. We
+            are hiring experienced Abacus teachers now, and classes begin as soon as our
+            teachers are onboard. Register your interest now and be first in line when
+            enrolment opens.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">

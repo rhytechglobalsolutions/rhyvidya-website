@@ -14,6 +14,7 @@ const LINKS = [
   { href: "/subjects/mathematics", label: "Mathematics" },
   { href: "/subjects/abacus", label: "Abacus" },
   { href: "/subjects/coding", label: "Coding" },
+  { href: "/subjects/english", label: "English" },
   { href: "/#pricing", label: "Plans" },
   { href: "/#book", label: "Contact" },
 ];

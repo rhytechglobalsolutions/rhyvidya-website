@@ -66,7 +66,8 @@ export default function TamilPage() {
           <p className="lede">
             Tamil is the next subject opening on RhyVidya, taught by Saraswathi — the same
             experienced teacher behind our Hindi classes, with 25+ years of teaching experience.
-            Register your interest now and be first in line when enrolment opens.
+            Tamil will welcome learners of all ages. Register your interest now and be first in
+            line when enrolment opens.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#bookingForm">

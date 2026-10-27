@@ -7,12 +7,12 @@ import { FAQS, PLANS, OG_IMAGE, SITE, SUBJECTS } from "./data";
 export const metadata: Metadata = {
   title: "RhyVidya — Learn Live with Expert Teachers",
   description:
-    "Learn live online with experienced teachers — Hindi, Physics, and Mathematics available now, with Tamil, Abacus, and Coding coming soon. First month free.",
+    "Learn live online with experienced teachers — Hindi, Physics, and Mathematics available now, with Tamil, Abacus, Coding, and English coming soon. Free assessment and first month free.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "RhyVidya — Learn Live with Expert Teachers",
     description:
-      "Learn live online with experienced teachers — Hindi, Physics, and Mathematics available now, with Tamil, Abacus, and Coding coming soon. First month free.",
+      "Learn live online with experienced teachers — Hindi, Physics, and Mathematics available now, with Tamil, Abacus, Coding, and English coming soon. Free assessment and first month free.",
     url: "/",
     type: "website",
     images: [OG_IMAGE],
@@ -29,7 +29,7 @@ const jsonLd = {
       url: "https://www.rhyvidya.com/",
       logo: SITE.logo,
       description:
-        "RhyVidya is an online learning platform where experienced teachers teach students live online across many subjects — Hindi, Physics, and Mathematics available now, with Tamil, Abacus, and Coding coming soon — for students worldwide.",
+        "RhyVidya is an online learning platform where experienced teachers teach students live online across many subjects — Hindi, Physics, and Mathematics available now, with Tamil, Abacus, Coding, and English coming soon — for students worldwide.",
       email: SITE.email,
       telephone: "+1-437-870-7083",
       parentOrganization: {
@@ -52,7 +52,7 @@ const jsonLd = {
       name: "RhyVidya — Live Online Classes with Expert Teachers",
       category: "Online learning platform",
       description:
-        "Live online classes with experienced teachers across Hindi, Physics, and Mathematics — on Google Meet, Zoho Meeting, YouTube, or WhatsApp — 1-to-1 and group sessions by appointment, with the first month free at launch. Tamil, Abacus, and Coding classes are coming soon.",
+        "Live online classes with experienced teachers across Hindi, Physics, and Mathematics — on Google Meet, Zoho Meeting, YouTube, or WhatsApp — 1-to-1 and group sessions by appointment, with a free assessment and the first month free at launch. Tamil, Abacus, Coding, and English classes are coming soon.",
       brand: { "@id": "https://www.rhyvidya.com/#organization" },
     },
   ],
@@ -77,7 +77,9 @@ export default function HomePage() {
               live online — across Hindi, Physics, and Mathematics, with teachers available now.
               Build confidence at your
               own pace in a simple online classroom, with personal guidance from your teacher
-              and practice videos shaped around your level.
+              and practice videos shaped around your level. Every booking starts with a free
+              assessment, so your teacher places you at exactly the right level — and your
+              first month is free.
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#bookingForm">
@@ -110,7 +112,7 @@ export default function HomePage() {
           </div>
           <div className="trust-item">
             <b>First month free</b>
-            <span>Launch offer for new students</span>
+            <span>Free assessment included for every new student</span>
           </div>
           <div className="trust-item">
             <b>Easy at every step</b>
@@ -175,8 +177,8 @@ export default function HomePage() {
             <p>
               One platform, many subjects — every class taught live online by an experienced
               teacher. Hindi, Physics, and Mathematics are available now, Tamil is opening
-              next, and Abacus and Coding classes are coming soon. Pick a subject to see its
-              classes and meet its teacher.
+              next, and Abacus, Coding, and English classes are coming soon. Pick a subject to
+              see its classes and meet its teacher.
             </p>
           </div>
           <div className="subject-grid">
@@ -190,6 +192,7 @@ export default function HomePage() {
                   <Link href={`/subjects/${s.slug}`}>{s.name}</Link>
                 </h3>
                 <p className="teacher-line">With {s.teachers}</p>
+                <p className="teacher-line">{s.ageBand}</p>
                 <p>{s.blurb}</p>
                 <ul>
                   {s.points.map((p) => (
@@ -226,8 +229,9 @@ export default function HomePage() {
               <h3>Choose your subject</h3>
               <p>
                 Choose from Hindi, Physics, and Mathematics — available now — or register
-                your interest in Tamil, Abacus, and Coding. Tell us what you can already do,
-                and we place you at the right stage with the right teacher.
+                your interest in Tamil, Abacus, Coding, and English. Tell us what you can
+                already do, and a free assessment places you at the right stage with the
+                right teacher.
               </p>
             </article>
             <article className="step">
@@ -242,8 +246,9 @@ export default function HomePage() {
               <span className="step-num">03</span>
               <h3>Stay supported</h3>
               <p>
-                Review teacher-uploaded videos, send questions through the student chat, and use
-                WhatsApp for reminders and quick support.
+                Parents receive a short weekly progress update — what was covered, what comes
+                next, and one thing to practise — alongside teacher-uploaded practice videos,
+                student chat, and WhatsApp for reminders and quick support.
               </p>
             </article>
           </div>
@@ -345,7 +350,9 @@ export default function HomePage() {
           </div>
           <p className="launch-note">
             The video library is being prepared for launch; these cards show the planned learning
-            format. Phase 1 videos will remain free to watch.
+            format. Phase 1 videos will remain free to watch. Between classes, students keep
+            learning with weekly practice — a short worksheet set by their teacher each week,
+            paired with free-library videos to review at home.
           </p>
           <p className="launch-note">
             RhyVidya's videos live on our YouTube channel —{" "}
@@ -417,8 +424,8 @@ export default function HomePage() {
             <h2>Start with the booking form.</h2>
             <p>
               Tell us who is learning and what they would like to learn — Hindi, Physics, and
-              Mathematics classes are available now, and Tamil, Abacus, and Coding are coming
-              next, so you can register your interest for them today. Choose a 1-to-1 class or a group session, on a weekday or
+              Mathematics classes are available now, and Tamil, Abacus, Coding, and English are
+              coming next, so you can register your interest for them today. Choose a 1-to-1 class or a group session, on a weekday or
               a weekend — every class is by appointment. We reply from{" "}
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a> to confirm your time and the
               online class details for your free first month.
