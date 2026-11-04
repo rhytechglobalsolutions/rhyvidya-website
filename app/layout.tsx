@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "RhyVidya — Learn Live with Expert Teachers",
+    default: "RhyVidya — Knowledge is Power | Live Online Classes with Expert Teachers",
     template: "%s | RhyVidya",
   },
   description:
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "RhyVidya",
     url: SITE.url + "/",
-    title: "RhyVidya — Learn Live with Expert Teachers",
+    title: "RhyVidya — Knowledge is Power | Live Online Classes with Expert Teachers",
     description:
       "Learn live online with experienced teachers — Hindi, Tamil, Physics, and Mathematics, taught live for students worldwide. First month free.",
     images: [
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RhyVidya — Learn Live with Expert Teachers",
+    title: "RhyVidya — Knowledge is Power | Live Online Classes with Expert Teachers",
     description:
       "Learn live online with experienced teachers — Hindi, Tamil, Physics, and Mathematics, taught live for students worldwide. First month free.",
     images: [SITE.logo],

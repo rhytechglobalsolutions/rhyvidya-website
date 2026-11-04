@@ -5,12 +5,12 @@ import JsonLd from "./components/JsonLd";
 import { FAQS, PLANS, OG_IMAGE, SITE, SUBJECTS } from "./data";
 
 export const metadata: Metadata = {
-  title: "RhyVidya — Learn Live with Expert Teachers",
+  title: "RhyVidya — Knowledge is Power | Live Online Classes with Expert Teachers",
   description:
     "Learn live online with experienced teachers — Hindi, Physics, and Mathematics available now, with Tamil, Abacus, Coding, and English coming soon. Free assessment and first month free.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "RhyVidya — Learn Live with Expert Teachers",
+    title: "RhyVidya — Knowledge is Power | Live Online Classes with Expert Teachers",
     description:
       "Learn live online with experienced teachers — Hindi, Physics, and Mathematics available now, with Tamil, Abacus, Coding, and English coming soon. Free assessment and first month free.",
     url: "/",
@@ -49,7 +49,7 @@ const jsonLd = {
     {
       "@type": "Product",
       "@id": "https://www.rhyvidya.com/#product",
-      name: "RhyVidya — Live Online Classes with Expert Teachers",
+      name: "RhyVidya — Knowledge is Power | Live Online Classes with Expert Teachers",
       category: "Online learning platform",
       description:
         "Live online classes with experienced teachers across Hindi, Physics, and Mathematics — on Google Meet, Zoho Meeting, YouTube, or WhatsApp — 1-to-1 and group sessions by appointment, with a free assessment and the first month free at launch. Tamil, Abacus, Coding, and English classes are coming soon.",
