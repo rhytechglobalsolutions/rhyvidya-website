@@ -87,7 +87,7 @@ export default function Header() {
             </div>
 
             <div className="flex flex-col">
-              <span className="font-serif text-[25px] font-semibold leading-none tracking-[-0.055em] text-[#171b35] sm:text-[29px]">
+              <span className=" text-[25px] font-semibold leading-none tracking-[-0.055em] text-[#171b35] sm:text-[29px]">
                 RhyVidya
                 <span className="text-[#7864d9]">.</span>
               </span>
@@ -101,7 +101,7 @@ export default function Header() {
           <div className="hidden items-center gap-7 xl:flex">
             <Link
               href="/how-it-works"
-              className="text-[12px] font-semibold tracking-[0.01em] text-[#62647a] transition-colors duration-200 hover:text-[#7562d9]"
+              className="text-[12px] cursor-pointer font-semibold tracking-[0.01em] text-[#62647a] transition-colors duration-200 hover:text-[#7562d9]"
             >
               How it works
             </Link>
@@ -111,7 +111,7 @@ export default function Header() {
               <button
                 type="button"
                 aria-haspopup="true"
-                className="flex items-center gap-2 py-5 text-[12px] font-semibold text-[#62647a] transition-colors hover:text-[#7562d9]"
+                className="flex cursor-pointer items-center gap-2 py-5 text-[12px] font-semibold text-[#62647a] transition-colors hover:text-[#7562d9]"
               >
                 Subjects
                 <svg
@@ -135,7 +135,7 @@ export default function Header() {
                   <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#9b96b2]">
                     Explore learning
                   </p>
-                  <p className="mt-1 font-serif text-lg text-[#171b35]">
+                  <p className="mt-1  text-lg text-[#171b35]">
                     Find your subject.
                   </p>
                 </div>
@@ -324,7 +324,7 @@ export default function Header() {
             </div>
 
             <div className="mt-6 rounded-2xl bg-[#171a35] p-5">
-              <p className="font-serif text-xl text-white">
+              <p className=" text-xl text-white">
                 Your learning journey starts here.
               </p>
               <p className="mt-2 text-[11px] leading-5 text-white/55">
