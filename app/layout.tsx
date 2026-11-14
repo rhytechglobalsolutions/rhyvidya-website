@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import { SITE } from "./data";
 import "./globals.css";
 
-const lora = Lora({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-display" });
+// const lora = Lora({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-display" });
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${lora.variable} ${jakarta.variable} ${devanagari.variable} ${tamil.variable}`}
+      className={`${jakarta.variable} ${devanagari.variable} ${tamil.variable}`}
     >
       <body>
         <Header />
