@@ -145,7 +145,7 @@ export default function TermsAndConditionsPage() {
 
               <div className="mt-7 border-t border-[#eeeaf0] pt-5">
                 <p className="text-xs leading-6 text-[#898697]">
-                  Have a question about these terms?
+                  Have a question about these term?
                 </p>
                 <a
                   href={`mailto:${SITE.email}`}
